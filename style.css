@@ -1,0 +1,26 @@
+* {
+	box-sizing: border-box;
+	text-align: center;
+	font-weight: normal;
+	font-family: sans-serif;
+}
+
+.column {
+	float: left;
+	font-size: 20px;
+}
+
+.edge {
+	width: 30%;
+}
+
+img {
+	width: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+	.column {
+		width: 100%;
+		font-size: 25px;
+	}
+}
