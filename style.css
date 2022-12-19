@@ -10,25 +10,35 @@
 	font-size: 20px;
 }
 
+/* A type of column, two on either side of the page take up 60%
+of the total width. */
 .edge {
 	width: 30%;
 }
 
+/* Used for small images inside of columns. */
 .thumb {
 	width: 50%
 }
 
+/* The center column, uses the remaining 40% page width. */
 .center {
 	width: 40%;
 }
 
+/* If the screen is thin, stack the columns on top of each
+other. Also move a small part of the page up and in between the
+two collage halves. */
 @media only screen and (max-width: 800px) {
+
 	.column {
 		width: 100%;
 	}
+
 	.short {
 		position: relative;
 		bottom: 100vw;
 		margin-bottom: -100vw;
 	}
+
 }
