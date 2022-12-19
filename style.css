@@ -1,29 +1,35 @@
 * {
 	box-sizing: border-box;
-	text-align: center;
 	font-weight: normal;
 	font-family: sans-serif;
 }
 
+h1 {
+	text-align: center;
+}
+
 .column {
 	float: left;
-	font-size: 20px;
+	text-align: center;
 }
 
 /* A type of column, two on either side of the page take up 60%
 of the total width. */
 .edge {
 	width: 30%;
+	padding: 0.5em;
 }
 
-/* Used for small images inside of columns. */
-.thumb {
-	width: 50%
-}
-
-/* The center column, uses the remaining 40% page width. */
+/* The center column uses the remaining 40% page width. Also
+meant for thumbnail images inside of columns. */
 .center {
 	width: 40%;
+}
+
+.footer {
+	clear: left;
+	font-size: 0.7em;
+	padding-top: 0.5em;
 }
 
 /* If the screen is thin, stack the columns on top of each
@@ -37,8 +43,8 @@ two collage halves. */
 
 	.short {
 		position: relative;
-		bottom: 100vw;
-		margin-bottom: -100vw;
+		bottom: 104vw;
+		margin-bottom: -104vw;
 	}
 
 }
