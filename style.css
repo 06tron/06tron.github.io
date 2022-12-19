@@ -14,13 +14,21 @@
 	width: 30%;
 }
 
-img {
+.thumb {
+	width: 50%
+}
+
+.center {
 	width: 40%;
 }
 
 @media only screen and (max-width: 800px) {
 	.column {
 		width: 100%;
-		font-size: 25px;
+	}
+	.short {
+		position: relative;
+		bottom: 100vw;
+		margin-bottom: -100vw;
 	}
 }
