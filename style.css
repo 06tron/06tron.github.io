@@ -1,9 +1,3 @@
-/* @font-face {
-	font-family: "Quantico";
-	src: url("fonts/quantico-v15-latin-regular.woff2") format("woff2"),
-		url("fonts/quantico-v15-latin-regular.woff") format("woff");
-} */
-
 * {
 	box-sizing: border-box;
 	font-family: sans-serif;
@@ -19,11 +13,14 @@ h1 {
 	text-align: center;
 }
 
+.short {
+	padding: 0.5em;
+}
+
 /* A type of column, two on either side of the page take up 60%
 of the total width. */
 .edge {
 	width: 30%;
-	padding: 0.5em;
 }
 
 /* The center column uses the remaining 40% page width. Also
@@ -36,6 +33,13 @@ meant for thumbnail images inside of columns. */
 	clear: left;
 	font-size: 0.7em;
 	padding-top: 0.5em;
+}
+
+.section {
+	padding: 0.5em;
+	margin: 2.15vw 3vw 6vw;
+	background-color: pink;
+	box-shadow: 0 0 0.2vw 1.5vw #FFF7F8;
 }
 
 /* If the screen is thin, stack the columns on top of each
@@ -51,6 +55,11 @@ two collage halves. */
 		position: relative;
 		bottom: 104vw;
 		margin-bottom: -104vw;
+	}
+
+	.section {
+		margin: 8vw 5.4vw 14vw;
+		box-shadow: 0 0 0.5vw 4vw #FFF7F8;
 	}
 
 }
