@@ -21,7 +21,16 @@
 			</p>
 			<p>
 				These oddly shaped puzzles are built upon a graph structure.
-				The player traverses this graph as they move their mouse around on the screen.
+				There is a vertex for each cell in the puzzle.
+				For example a regular Sudoku puzzle would have 81 vertices.
+				The player traverses this graph by moving their mouse between adjacent cells.
+			</p>
+			<p>
+				There are two components to the player's position on the board.
+				The first is the current vertex, which represents one of the puzzle's cells.
+				The second is this cell's placement on the screen, which I call its level.
+				The level describes the cell's horizontal position, vertical position, and orientation.
+				There are eight possible orientations in this game, which correspond to the symmetries of a square.
 			</p>
 		</div>
 	</div>
