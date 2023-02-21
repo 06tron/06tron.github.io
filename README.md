@@ -6,7 +6,7 @@
 
 A Sudoku variant that doesn't change anything but the shape of the puzzle.
 This [interactive website](https://06tron.github.io/numberspace/) is a work in progress.
-So far there are two easy puzzles a visitor can play, as long as they have a keyboard and mouse.
+So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.
 
 These oddly shaped puzzles can be modeled with a graph structure.
 Suppose there is a vertex for each cell in the puzzle.
