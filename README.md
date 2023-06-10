@@ -37,7 +37,7 @@ See my [LinkedIn profile](https://www.linkedin.com/in/3mrichardson/).
 ![Portrait Photo](thumbs/mt_tom.jpg)
 
 I'm a computer science student at UMass Amherst, working on a bachelor's degree.
-My favorite subjects are geometry, abstract algebra, and computer graphics.
+My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.
 
 Bookmark a link like this one for a simple note in the browser:  
 data:text/html,%3Cbody%20contenteditable%20style=%22font-family:Courier,monospace;line-height:1.4;padding:4em;%22%3E
