@@ -26,7 +26,7 @@ The level is represented with a similar matrix.
 Every time the player moves to a new cell, they follow a single edge in the graph.
 The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge.
 
-![A Crow's Head](mpc_crows_head.png)
+![A Crow's Head](A%20Crow's%20Head.png)
 
 I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.
 
@@ -38,6 +38,8 @@ See my [LinkedIn profile](https://www.linkedin.com/in/3mrichardson/).
 
 I'm a computer science student at UMass Amherst, working on a bachelor's degree.
 My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.
+
+&#10086;
 
 Bookmark a link like this one for a simple note in the browser:  
 data:text/html,%3Cbody%20contenteditable%20style=%22font-family:Courier,monospace;line-height:1.4;padding:4em;%22%3E
