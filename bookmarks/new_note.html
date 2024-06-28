@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Unsaved Note</title>
+	<meta charset="utf-8">
+</head>
+
+<body id="note" contenteditable="true" style="font-family:Courier,monospace; line-height:1.4; padding:4em;">
+	<br>
+	<div contenteditable="false" style="position: fixed; top:1em; right:1em;">
+		<a id="export" target="_blank" href="data:,your_text_here"></a>
+	</div>
+	<script>
+		const note = document.getElementById("note");
+		const link = document.getElementById("export");
+		note.focus();
+		link.innerText = new URLSearchParams(window.location.search).get('s') ?? "save";
+		link.addEventListener("click", function () {
+			const text = note.innerText.slice(0, -(link.innerText.length + 2));
+			link.href = "data:text/plain;charset=UTF-8," + encodeURIComponent(text);
+		});
+	</script>
+</body>
+
+</html>
