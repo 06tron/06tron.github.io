@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>MR</title>
+	<id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
+	<updated>2024-07-26T16:30:48-04:00</updated>
+	<author>
+		<name>Matthew Richardson</name>
+		<uri>https://orcid.org/0009-0001-0977-2029</uri>
+	</author>
+	<link rel="self" href="https://06tron.github.io/feed/atom.xml"/>
+	<icon>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVQ4y2NgGGjASEjBfwaG/0jcdAYGBl+oRl8GBgYGJkpdQIoB6ZQawEATA1jIdTqGAbhCe0C8gO7kzZSGATqYCaVnkWLATGJckM4wJAEAawMJ8f2bNwoAAAAASUVORK5CYII=</icon>
+
+	<entry>
+		<title>66a: Death and the Compass</title>
+		<id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
+		<updated>2024-07-26T16:30:48-04:00</updated>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<h1><a href="https://www.wikidata.org/wiki/Q5247280">Death and the Compass</a></h1>
+				<p>Short story</p>
+				<img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
+				<h2>Page to Screen</h2>
+				<p>Moist von Lipwig turn his life around in eight days</p>
+				<h2>Other news</h2>
+				<p>Visited Buckminster Fuller's grave on the Bellwort Path at Mount Auburn Cemetery.</p>
+			</div>
+		</content>
+		<link href="http://example.org/2003/12/13/atom03"/>
+	</entry>
+
+</feed>
