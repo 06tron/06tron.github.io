@@ -9,7 +9,7 @@
 		<uri>https://orcid.org/0009-0001-0977-2029</uri>
 	</author>
 	<link rel="self" href="https://06tron.github.io/feed/atom.xml"/>
-	<icon>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVQ4y2NgGGjASEjBfwaG/0jcdAYGBl+oRl8GBgYGJkpdQIoB6ZQawEATA1jIdTqGAbhCe0C8gO7kzZSGATqYCaVnkWLATGJckM4wJAEAawMJ8f2bNwoAAAAASUVORK5CYII=</icon>
+	<icon>https://06tron.github.io/icons/16.png</icon>
 
 	<entry>
 		<title>66a: Death and the Compass</title>
@@ -26,7 +26,7 @@
 				<p>Visited Buckminster Fuller's grave on the Bellwort Path at Mount Auburn Cemetery.</p>
 			</div>
 		</content>
-		<link href="http://example.org/2003/12/13/atom03"/>
+		<link href="https://06tron.github.io/numberspace"/>
 	</entry>
 
 </feed>
