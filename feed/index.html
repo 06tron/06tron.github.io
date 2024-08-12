@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Untitled Feed</title>
+	<meta charset="utf-8">
+	<meta name="color-scheme" content="dark light">
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
+	<style>
+		body {
+			font-family: Courier, monospace;
+			line-height: 1.4;
+			padding: 1em 4em;
+		}
+
+		aside {
+			font-size: smaller;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		/**
+		 * @param {Element} element
+		 * @param {string} tagName
+		 * @returns {Element | undefined}
+		 */
+		function getFrom(element, tagName) {
+			return element.getElementsByTagName(tagName)[0];
+		}
+
+		/**
+		 * @param {Element} atomEntry - Contains a human readable title element.
+		 * @returns {Element}
+		 */
+		function atomEntryToHTML(atomEntry) {
+			// atomEntry must contain content with type="xhtml", and a title
+			const article = document.createElement("article");
+			article.id = getFrom(atomEntry, "link")?.getAttribute("href")?.split("#")?.[1] ?? "";
+			const h2 = document.createElement("h2");
+			h2.textContent = getFrom(atomEntry, "title").textContent;
+			article.appendChild(h2);
+			article.insertAdjacentHTML("beforeend", getFrom(atomEntry, "content")?.innerHTML ?? "");
+			return article;
+		}
+
+		/**
+		 * @param {Document | null} atomDoc - Contains a human readable title
+		 * element if not null.
+		 */
+		function displayAtomFeed(atomDoc) {
+			if (atomDoc === null) {
+				console.log("XMLHttpRequest.responseXML was null");
+				return;
+			}
+			const link = document.createElement("link");
+			link.rel = "icon";
+			link.href = getFrom(atomDoc, "icon")?.textContent ?? "";
+			document.head.appendChild(link);
+			const titleText = getFrom(atomDoc, "title").textContent;
+			document.title = titleText;
+			const header = document.createElement("header");
+			const h1 = document.createElement("h1");
+			h1.textContent = titleText;
+			header.appendChild(h1);
+			header.insertAdjacentHTML("beforeend", getFrom(atomDoc, "subtitle")?.innerHTML ?? "");
+			document.body.appendChild(header);
+			for (const entry of atomDoc.getElementsByTagName("entry")) {
+				document.body.appendChild(atomEntryToHTML(entry));
+			}
+		}
+
+		const req = new XMLHttpRequest();
+		req.onload = () => displayAtomFeed(req.responseXML);
+		const feedUrl = new URLSearchParams(window.location.search).get('f') ?? "https://06tron.github.io/feed/atom.xml";
+		req.open("GET", feedUrl);
+		req.send();
+	</script>
+</body>
+
+</html>

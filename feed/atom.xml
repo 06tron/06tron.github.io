@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>MR</title>
+	<title>○–○––○–○¹ blog</title>
+	<subtitle type="xhtml">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<aside>
+				<p>1. This flattened hexagon is an example of a sixtron.</p>
+			</aside>
+		</div>
+	</subtitle>
 	<id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
-	<updated>2024-07-26T16:30:48-04:00</updated>
+	<updated>2024-08-12T14:52:02-04:00</updated>
 	<author>
 		<name>Matthew Richardson</name>
 		<uri>https://orcid.org/0009-0001-0977-2029</uri>
 	</author>
 	<link rel="self" href="https://06tron.github.io/feed/atom.xml"/>
-	<icon>https://06tron.github.io/icons/16.png</icon>
+	<icon>https://06tron.github.io/icons/48.svg</icon>
 
 	<entry>
-		<title>66a: Death and the Compass</title>
+		<title>66a - Death and the Compass</title>
 		<id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
-		<updated>2024-07-26T16:30:48-04:00</updated>
+		<updated>2024-08-12T14:52:02-04:00</updated>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
-				<h1><a href="https://www.wikidata.org/wiki/Q5247280">Death and the Compass</a></h1>
-				<p>Short story</p>
-				<img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
-				<h2>Page to Screen</h2>
+				<!-- <h1 id="1"><a href="https://www.wikidata.org/wiki/Q5247280">Death and the Compass</a></h1> -->
+				<p>Short story murder mystery</p>
+				<!-- <img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/> -->
+				<h3>Page to Screen</h3>
 				<p>Moist von Lipwig turn his life around in eight days</p>
-				<h2>Other news</h2>
+				<h3>Other news</h3>
 				<p>Visited Buckminster Fuller's grave on the Bellwort Path at Mount Auburn Cemetery.</p>
+				<object type="image/svg+xml" data="https://06tron.github.io/feed/mirror_polygon.svg"></object>
 			</div>
 		</content>
-		<link href="https://06tron.github.io/numberspace"/>
+		<link rel="alternate" href="https://06tron.github.io/feed#1"/>
 	</entry>
 
 </feed>

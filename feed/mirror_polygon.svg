@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="mirror_polygon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <script type="application/ecmascript"> <![CDATA[
+
+        function svgMouseCoords(event) {
+            const CTM = event.target.getScreenCTM();
+            return [
+				(event.clientX - CTM.e) / CTM.a,
+                (event.clientY - CTM.f) / CTM.d
+            ];
+        }
+
+		function mhtnDist(startPoint, endPoint) {
+			const [ax, ay] = startPoint;
+			const [bx, by] = endPoint;
+			return Math.abs(bx - ax) + Math.abs(by - ay);
+		}
+
+		function rayIntersectsSegment(startRay, onRay, startSeg, endSeg) {
+			const [ax, ay] = startRay;
+			const [bx, by] = onRay;
+			const [cx, cy] = startSeg;
+			const [dx, dy] = endSeg;
+			if (bx == ax) {
+				if (dx == cx || ax < cx == ax < dx) {
+					return false;
+				}
+				return 0 < (by - ay) * (cy - ay - (cx - ax) * (dy - cy) / (dx - cx));
+			}
+			const raySlope = (by - ay) / (bx - ax);
+			if (cy - ay < raySlope * (cx - ax) == dy - ay < raySlope * (dx - ax)) {
+				return false;
+			}
+			if (dx == cx) {
+				return 0 < (bx - ax) * (dx - ax);
+			}
+			const segSlope = (dy - cy) / (dx - cx);
+			return 0 < (bx - ax) * (segSlope - raySlope) * (segSlope * (cx - ax) - cy + ay);
+		}
+
+		// function twoLineIntersection() {}
+
+		function sideOfPolygonOnSegment(vertices, startSeg, endSeg) {
+			// let minDist = mhtnDist(startSeg, endSeg);
+			for (let i = 0; i < vertices.length; ++i) {
+				const startSide = vertices[i];
+				const endSide = vertices[(i + 1) % vertices.length];
+				if (rayIntersectsSegment(startSeg, endSeg, startSide, endSide)) {
+					// const sideDist = mhtnDist(startSeg);
+					return [startSide, endSide];
+				}
+			}
+			return -1;
+		}
+		function matrixMultiply(matrixOne, matrixTwo) {
+			const [a, b, c, d, e, f] = matrixOne;
+			const [u, v, w, x, y, z] = matrixTwo;
+			return [
+				a * u + c * v,
+				b * u + d * v,
+				a * w + c * x,
+				b * w + d * x,
+				a * y + c * z + e,
+				b * y + d * z + f
+			];
+		}
+		function pointTransform(matrix, [x, y]) {
+			const [a, b, c, d, e, f] = matrix;
+			return [a * x + c * y + e, b * x + d * y + f];
+		}
+		function matrixInverse([a, b, c, d, e, f]) {
+			const scale = 1 / (a * d - b * c);
+			return [d, -b, -c, a, c * f - d * e, b * e - a * f].map(x => x * scale);
+		}
+		function reflectionMatrix(segmentOfReflectionLine) {
+			const [[px, py], [qx, qy]] = segmentOfReflectionLine;
+			if (qx == px) {
+				return [-1, 0, 0, 1, 2 * px, 0];
+			}
+			const m = (qy - py) / (qx - px);
+			const b = py - m * px;
+			matrix = [1 - m * m, 2 * m, 2 * m, m * m - 1, -2 * m * b, 2 * b];
+			return matrix.map(e => e / (m * m + 1));
+		}
+        const svg = document.getElementById("mirror_polygon");
+        let firstClick = undefined;
+		let lastMatrix = [1, 0, 0, 1, 0, 0];
+        let color = "lightgray";
+		// const circle = document.createElementNS(svg.namespaceURI, "circle");
+
+		let polygon = [[-0.75,-0.75],[-0.75,0.49830288133274436],[0.17387953251128674,0.880986313697834],[0.880986313697834,0.17387953251128674],[0.49830288133274436,-0.75]];
+		// let polygon = [[-0.75,-0.75],[-0.75,0.498],[0.174,0.881],[0.881,0.174],[0.498,-0.75]];
+		polygon = polygon.map(v => v.map(c => c * 5));
+		let polygonVertexString = undefined;
+
+        function svgClick(event) {
+            let click = svgMouseCoords(event);
+            if (firstClick == undefined) {
+				polygon = polygon.map(([vx, vy]) => [click[0] + vx, click[1] + vy]);
+                const first = document.createElementNS(svg.namespaceURI, "polygon");
+				polygonVertexString = polygon.map(v => v.join(',')).join(' ')
+                first.setAttribute("points", polygonVertexString);
+				first.setAttribute("fill", color);
+                first.setAttribute("stroke", "black");
+				first.setAttribute("stroke-width", 0.1);
+                svg.appendChild(first);
+				firstClick = click;
+				return;
+            }
+			click = pointTransform(matrixInverse(lastMatrix), click);
+			// circle.setAttribute("cx", click[0]);
+			// circle.setAttribute("cy", click[1]);
+			// circle.setAttribute("r", 1);
+			reflectionLine = sideOfPolygonOnSegment(polygon, firstClick, click);
+			matrix = matrixMultiply(lastMatrix, reflectionMatrix(reflectionLine));
+			const next = document.createElementNS(svg.namespaceURI, "polygon");
+			next.setAttribute("points", polygonVertexString);
+			next.setAttribute("fill", color);
+			next.setAttribute("stroke", "black");
+			next.setAttribute("stroke-width", 0.1);
+			next.setAttribute("transform", "matrix(" + matrix.join(' ') + ')');
+			svg.appendChild(next);
+			// svg.appendChild(circle);
+			lastMatrix = matrix;
+        }
+        svg.addEventListener("click", svgClick);
+    ]]> </script>
+</svg>
