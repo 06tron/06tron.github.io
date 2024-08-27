@@ -1,9 +1,9 @@
 /**
  * https://www.desmos.com/calculator/xx23ttfmem
- * @param {[number, number]} startRay 
- * @param {[number, number]} onRay 
- * @param {[number, number]} startSeg 
- * @param {[number, number]} endSeg 
+ * @param {[number, number]} startRay
+ * @param {[number, number]} onRay
+ * @param {[number, number]} startSeg
+ * @param {[number, number]} endSeg
  * @returns {boolean}
  */
 function rayIntersectsSegment(startRay, onRay, startSeg, endSeg) {
@@ -29,10 +29,15 @@ function rayIntersectsSegment(startRay, onRay, startSeg, endSeg) {
 }
 
 /**
- * @param {[number, number][]} vts 
+ * @param {[number, number][]} vts
  * @param {DOMPoint} onRay - The ray starts at the origin and
  * passes through this point.
- * @returns {[[number, number], [number, number]]}
+ * @returns {[[number, number], [number, number]]} - An edge of
+ * the polygon which intersects the ray, assuming that at least
+ * one does. If the given vertices define a convex polygon with
+ * the origin inside it, then exactly one side intersects most
+ * given rays. If the ray passes exactly through a vertex then
+ * this function may return an incorrect edge.
  */
 function sideOfPolygonOnRay(vts, onRay) {
 	for (let i = 0; i < vts.length - 1; ++i) {
@@ -46,7 +51,7 @@ function sideOfPolygonOnRay(vts, onRay) {
 }
 
 /**
- * @param {[[number, number], [number, number]]} segmentOfReflectionLine 
+ * @param {[[number, number], [number, number]]} segmentOfReflectionLine
  * @returns {DOMMatrix}
  */
 function reflectionMatrix(segmentOfReflectionLine) {
@@ -105,11 +110,11 @@ function add2D(p, q = null) {
  */
 function recenterPolygon(vertexString) {
 	try {
-        const vts = JSON.parse(vertexString);
+		const vts = JSON.parse(vertexString);
 		if (vts instanceof Array) {
 			return vts.map(add2D(vts.reduce(add2D, [0, 0]).map(x => x / -vts.length)));
 		}
-    } catch {}
+		} catch {}
 	return null;
 }
 
@@ -130,21 +135,7 @@ function regularPolygon(n) {
 }
 
 /**
- * @param {[number, number][]} vts - A [number, number] array
- * with at least one element.
- * @param {number} height
- * @returns {[number, number][]}
- */
-function scalePolygon(vts, height) {
-	const [high, low] = vts.reduce(function ([hi, lo], [_, y]) {
-		return [Math.max(hi, y), Math.min(lo, y)]
-	}, [-Infinity, Infinity]);
-	const scale = height / (high - low);
-	return vts.map(v => v.map(x => x * scale));
-}
-
-/**
- * @param {[number, number][]} vts 
+ * @param {[number, number][]} vts
  * @returns {string} - Formatted to be assigned to the points
  * attribute of the SVG polygon element.
  */
@@ -153,20 +144,21 @@ function polygonToString(vts) {
 }
 
 /**
- * @param {DOMPoint} p 
+ * @param {DOMPoint} p
  * @returns {DOMMatrix}
  */
 function translateTo(p) {
-	return new DOMMatrix().translateSelf(p.x, p.y)
+	return new DOMMatrix().translateSelf(p.x, p.y);
 }
 
 // Global Variables
 const params = {
 	borderColor: "CanvasText",
+	decimalPlaces: "12",
 	fillColor: "lightgray",
-	heightOfPolygon: "12",
+	heightOfPolygon: "10",
 	inlineStyle: "color-scheme: light dark; background-color: Canvas",
-	selectedWidth: ".2",
+	selectedWidth: ".5",
 	unselectedWidth: ".1",
 	vertices: "5"
 };
@@ -176,13 +168,27 @@ let polygonElement;
 let polygonVertices;
 
 /**
- * @param {string} queryString 
+ * @param {string} queryString
  */
 function setParams(queryString) {
 	const usp = new URLSearchParams(queryString);
 	for (const [key, value] of Object.entries(params)) {
 		params[key] = usp.get(key.charAt(0)) ?? value;
 	}
+}
+
+/**
+ * @param {[number, number][]} vts - A [number, number] array
+ * with at least one element.
+ * @param {number} height
+ * @returns {[number, number][]} - Point coordinates are rounded
+ */
+function scalePolygon(vts, height) {
+	const [high, low] = vts.reduce(function ([hi, lo], [_, y]) {
+		return [Math.max(hi, y), Math.min(lo, y)];
+	}, [-Infinity, Infinity]);
+	const scale = height / (high - low);
+	return vts.map(v => v.map(x => +(x * scale).toFixed(+params.decimalPlaces)));
 }
 
 /**
@@ -199,7 +205,7 @@ function getBasePolygon() {
 }
 
 /**
- * @param {SVGGraphicsElement} target 
+ * @param {SVGGraphicsElement} target
  */
 function setSelected(target) {
 	if (target === selected) {
@@ -215,7 +221,7 @@ function setSelected(target) {
 }
 
 /**
- * @param {DOMMatrix} matrix 
+ * @param {DOMMatrix} matrix
  */
 function addPolygon(matrix) {
 	const pg = polygonElement.cloneNode(false);
@@ -240,6 +246,21 @@ function deletePolygon() {
 		svg.removeChild(selected);
 	}
 	setSelected(next ?? svg);
+}
+
+/**
+ * The function encodeURI does not escape the unreserved
+ * characters listed on the following line.
+ * A–Z a–z 0–9 - _ . ! ~ * ' ( )
+ * The following reserved characters are also not escaped.
+ * ; / ? : @ & = + $ ,
+ * Finally, the character "#" is not escaped, but as it
+ * indicates the beginning of a fragment identifier it is not
+ * allowed in the data component of a data URI.
+ * @param {string} xml 
+ */
+function svgDataURI(xml) {
+	return "data:image/svg+xml;charset=UTF-8," + encodeURI(xml).replaceAll("#", "%23");
 }
 
 setParams(window.location.search);
@@ -267,7 +288,13 @@ svg.addEventListener("keydown", function (event) {
 		case "Delete":
 			deletePolygon();
 			break;
+		case "c":
+		case "C":
+			if (event.ctrlKey || event.metaKey) {
+				navigator.clipboard.writeText(svgDataURI(svg.outerHTML));
+			}
+			break;
 		case "F3":
-			console.log(svg.children.length, svg === selected);
+			console.log(svg.children.length);
 	}
 });
