@@ -2,13 +2,8 @@
 <svg id="mirror_polygon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
 	<!-- This is an interactive polygon placement tool.
 
-	borderColor: "CanvasText",
-	decimalPlaces: "12",
-	fillColor: "lightgray",
-	heightOfPolygon: "10",
-	inlineStyle: "color-scheme: light dark; background-color: Canvas",
-	selectedWidth: ".5",
-	unselectedWidth: ".1",
-	vertices: "5" -->
+	https://06tron.github.io/blog/66c/mirror_polygon.svg?f=linear-gradient(blue, pink)
+
+	-->
 	<script type="application/ecmascript" href="script.js"></script>
 </svg>

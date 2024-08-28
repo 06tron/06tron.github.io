@@ -1,40 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE feed [
+	<!ENTITY labyrinths_mp "https://06tron.github.io/blog/66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
+]>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-	<title>○–○––○–○¹ blog</title>
-	<subtitle type="xhtml">
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<aside>
-				<p>1. This flattened hexagon is an example of a sixtron.</p>
-			</aside>
-		</div>
-	</subtitle>
-	<id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
-	<updated>2024-08-12T14:52:02-04:00</updated>
-	<author>
-		<name>Matthew Richardson</name>
-		<uri>https://orcid.org/0009-0001-0977-2029</uri>
-	</author>
-	<link rel="self" href="https://06tron.github.io/feed/atom.xml"/>
-	<icon>https://06tron.github.io/icons/48.svg</icon>
+<title>○–○––○–○¹ blog</title>
+<subtitle type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	<aside>
+		<p>1. This flattened hexagon is an example of a <a href="https://en.wikipedia.org/wiki/Phil_Fish#Polytron">sixtron</a>.</p>
+	</aside>
+</div>
+</subtitle>
+<id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
+<updated>2024-08-27T22:07:34-06:00</updated>
+<author>
+	<name>Matthew Richardson</name>
+	<uri>https://orcid.org/0009-0001-0977-2029</uri>
+</author>
+<link rel="self" href="https://06tron.github.io/blog/atom.xml"/>
+<icon>https://06tron.github.io/icons/48.svg</icon>
 
-	<entry>
-		<title>66a - Death and the Compass</title>
-		<id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
-		<updated>2024-08-12T14:52:02-04:00</updated>
-		<content type="xhtml">
-			<div xmlns="http://www.w3.org/1999/xhtml">
-				<!-- <h1 id="1"><a href="https://www.wikidata.org/wiki/Q5247280">Death and the Compass</a></h1> -->
-				<p>Short story murder mystery</p>
-				<!-- <img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/> -->
-				<h3>Page to Screen</h3>
-				<p>Moist von Lipwig turn his life around in eight days</p>
-				<h3>Other news</h3>
-				<p>Visited Buckminster Fuller's grave on the Bellwort Path at Mount Auburn Cemetery.</p>
-				<object type="image/svg+xml" data="https://06tron.github.io/feed/mirror_polygon.svg"></object>
-			</div>
-		</content>
-		<link rel="alternate" href="https://06tron.github.io/feed#1"/>
-	</entry>
+<entry>
+<title>66c - Death and the Compass</title>
+<id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
+<published>2024-08-27T22:07:34-06:00</published>
+<updated>2024-08-27T22:07:34-06:00</updated>
+<content type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	I first heard about the <cite>Death and the Compass</cite> in George Fayen's essay featured in the book Patterns of Symmetry.
+	<!-- https://www.wikidata.org/wiki/Q126176127 -->
+	<h3>The Page to Screen Book Club</h3>
+	<p>After finishing <cite>Going Postal</cite> by Terry Pratchett, an eight day story about a conman
+		turned postmaster, we read Death and the Compass and watched the short film adaptation
+		<a href="https://www.youtube.com/embed/j_UfUxm9Xko?mute=1">Spiderweb</a>.</p>
+	<p>I read the short story in the collection <cite>Labyrinths</cite>, which had a nice cover:</p>
+	<img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
+	<p>A slightly different cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">
+		Jason Fulford's website</a>.</p>
+	<section class="projects" id="66c_mirror_polygon">
+		<h3>SVG Mirror Polygon</h3>
+		<object type="image/svg+xml" data="&labyrinths_mp;" height="500"></object>
+		<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place
+			a polygon, and the next click will place a reflection of the polygon across one of its sides.
+			The most recently placed polygon is selected, unless you shift-click to select another one.
+			Shift-click the background to select none, and press backspace or delete to remove the selected
+			polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
+		<p>The following parameters listed with their default values can be edited using a query string:</p>
+		<dl>
+			<dt>borderColor</dt><dd>CanvasText</dd>
+			<dt>decimalPlaces</dt><dd>12</dd>
+			<dt>fillColor</dt><dd>red</dd>
+			<dt>heightOfPolygon</dt><dd>10</dd>
+			<dt>inlineStyle</dt><dd>color-scheme: light dark; background-color: Canvas</dd>
+			<dt>selectedWidth</dt><dd>.5</dd>
+			<dt>unselectedWidth</dt><dd>.1</dd>
+			<dt>vertices</dt><dd>5</dd>
+		</dl>
+		<p>Set the values using the first letter of the parameter name. The default values for the polygon
+			border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">
+			system colors</a>. The vertices parameter can either be a number 3 or greater, or a 2D array
+			of points defining any polygon. Convex polygons work best, and if you only specify the number
+			of vertices then a regular polygon will be used.</p>
+		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">
+			f=silver h=12 v=[[0,0],[0,1],[0.7401084675258551,1.3065629648763766],[1.3065629648763766,0.7401084675258551],[1,0]]
+			</a>. Here are two more examples: <a href="https://06tron.github.io/blog/66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">
+			f=#000 h=14 v=[[1,0],[0.57919,0.57919],[0,1],[-0.57919,0.57919],[-1,0],[-0.57919,-0.57919],[0,-1],[0.57919,-0.57919]]
+			</a>, and <a href="https://06tron.github.io/blog/66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">
+			i=background-image:url("https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg")
+			</a>.</p>
+	</section>
+	<h3>Footnotes</h3>
+	<p>Over my summer break, which ends in a week, I walked by Buckminster Fuller's gravestone on the
+		Bellwort Path at Mount Auburn Cemetery.</p>
+	<p>The book cover image above was accessed through the <a href="https://openlibrary.org/dev/docs/api/covers">
+		Open Library covers API</a>.</p>
+	<section class="encodings">
+		<h3>Embedded List</h3>
+		<pre>
+               46 45 44 43 42 41 40
+               47                39
+               48                38
+               49                37
+               50                36
+                                 35
+                                 34
+               27 28 29 30 31 32 33
+21 22 23 24 25 26
+20
+19
+18             01 02 03 04
+17 16 15 14 13 12       05
+               11       06
+               10 09 08 07</pre>
+	</section>
+</div>
+</content>
+<link rel="alternate" href="https://06tron.github.io/blog#1"/>
+</entry>
 
 </feed>

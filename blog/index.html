@@ -2,21 +2,12 @@
 <html lang="en">
 
 <head>
-	<title>Untitled Feed</title>
+	<title>Sixtron Blog</title>
 	<meta charset="utf-8">
 	<meta name="color-scheme" content="dark light">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
-	<style>
-		body {
-			font-family: Courier, monospace;
-			line-height: 1.4;
-			padding: 1em 4em;
-		}
-
-		aside {
-			font-size: smaller;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -35,7 +26,6 @@
 		 * @returns {Element}
 		 */
 		function atomEntryToHTML(atomEntry) {
-			// atomEntry must contain content with type="xhtml", and a title
 			const article = document.createElement("article");
 			article.id = getFrom(atomEntry, "link")?.getAttribute("href")?.split("#")?.[1] ?? "";
 			const h2 = document.createElement("h2");
@@ -73,7 +63,7 @@
 
 		const req = new XMLHttpRequest();
 		req.onload = () => displayAtomFeed(req.responseXML);
-		const feedUrl = new URLSearchParams(window.location.search).get('f') ?? "https://06tron.github.io/feed/atom.xml";
+		const feedUrl = new URLSearchParams(window.location.search).get('f') ?? "https://06tron.github.io/blog/atom.xml";
 		req.open("GET", feedUrl);
 		req.send();
 	</script>

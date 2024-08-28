@@ -155,7 +155,7 @@ function translateTo(p) {
 const params = {
 	borderColor: "CanvasText",
 	decimalPlaces: "12",
-	fillColor: "lightgray",
+	fillColor: "red",
 	heightOfPolygon: "10",
 	inlineStyle: "color-scheme: light dark; background-color: Canvas",
 	selectedWidth: ".5",
