@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg id="mirror_polygon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
-	<!-- This is an interactive polygon placement tool.
-
-	https://06tron.github.io/blog/66c/mirror_polygon.svg?f=linear-gradient(blue, pink)
-
-	-->
+	<!-- https://06tron.github.io?id=66c_mirror_polygon -->
 	<script type="application/ecmascript" href="script.js"></script>
 </svg>

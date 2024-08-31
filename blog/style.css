@@ -3,7 +3,7 @@ article {
 }
 
 aside {
-	border-top: .1em solid;
+	border-top: 1px solid;
 	font-size: smaller;
 	margin-left: 4em;
 	max-width: max-content;
@@ -14,25 +14,29 @@ body {
 	margin: 0em 2em;
 }
 
-/* dl style from https://stackoverflow.com/a/77380953 */
 dl {
 	display: grid;
-	grid-template: auto / auto auto;
-	width: fit-content;
-	column-gap: 1em;
-}
-
-dl dt {
-	grid-column-start: 1;
+	max-width: max-content;
 }
 
 dl dd {
 	grid-column-start: 2;
-	margin: 0;
+}
+
+iframe {
+	border: 1px solid;
+    height: 500px;
+	width: 100%;
+}
+
+img {
+	margin-left: 4em;
+	max-height: 500px;
+	overflow-x: auto;
 }
 
 p {
-	line-height: 1.3;
+	line-height: 1.4;
 }
 
 pre {
