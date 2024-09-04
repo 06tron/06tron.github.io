@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE feed [
-	<!ENTITY labyrinths_mp "https://06tron.github.io/blog/66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
+	<!ENTITY site_path "https://06tron.github.io/blog">
+	<!ENTITY labyrinths_mp "&site_path;/66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
 ]>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
@@ -18,7 +19,7 @@
 	<name>Matthew Richardson</name>
 	<uri>https://orcid.org/0009-0001-0977-2029</uri>
 </author>
-<link rel="self" href="https://06tron.github.io/blog/atom.xml"/>
+<link rel="self" href="&site_path;/atom.xml"/>
 <icon>https://06tron.github.io/icons/48.svg</icon>
 
 <entry>
@@ -28,73 +29,40 @@
 <updated>2024-08-30T23:36:33-04:00</updated>
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
-	<p>I first learned about Jorge Luis Borges and his short story <cite>Death and the Compass</cite> 
-		in 2022 while reading George Fayen's essay in the book <cite><a href="https://www.wikidata.org/wiki/Q126176127">Patterns 
-		of Symmetry</a></cite>. In July 2024 I read the story and discussed it with a book club run 
-		by my school's library.</p>
+	<p>I first learned about Jorge Luis Borges and his short story <cite>Death and the Compass</cite> in 2022 while reading George Fayen's essay in the book <cite><a href="https://www.wikidata.org/wiki/Q126176127">Patterns of Symmetry</a></cite>. In July 2024 I read the story and discussed it with a book club run by my school's library.</p>
 	<h3>The Page to Screen Book Club</h3>
-	<p>After finishing Terry Pratchett's <cite>Going Postal</cite>, an eight day story about a conman 
-		turned postmaster, we read <cite>Death and the Compass</cite> and watched the short film adaptation 
-		<cite><a href="https://www.youtube.com/embed/j_UfUxm9Xko?mute=1">Spiderweb</a></cite> directed 
-		by Paul Miller.</p>
-	<p>The first sentence of the story, as translated by Donald A. Yates, is: <q>Of the many problems 
-		which exercised the reckless discernment of Lönnrot, none was so strange—so rigorously strange, 
-		shall we say—as the periodic series of bloody events which culminated at the villa of Triste-le-Roy, 
-		amid the ceaseless aroma of the eucalypti.</q></p>
-	<p>I read this in the book <cite><a href="https://archive.org/details/labyrinths0000unse_y9b3">Labyrinths</a></cite>, 
-		and we noted that translator Anthony Kerrigan worded it as the exercise of <q>daring perspicacity</q> 
-		in the text other club members read. The line came up again as the first narration of <cite>Spiderweb</cite>: 
-		<q>Of the many unusual cases which challenged the powers of the celebrated investigator Erik 
-		Lönnrot, none was as bizarre as the periodic series of events which came to a conclusion at 
-		the desolate mansion of Triste-le-Roy amid the heady aroma of eucalyptus.</q></p>
-	<p>I liked the story, its half hour adaptation, and the cover of the copy of <cite>Labyrinths</cite> 
-		I checked out at Neilson Library:</p>
-	<img src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
-	<p>A slightly different version of the cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">Jason 
-		Fulford's website</a> (<a href="https://www.jasonfulford.com/scans/labyrinths_7.jpg">jpg</a>).</p>
-	<p>This mirrored pentagon inspired me to put together a little polygon reflection project I had 
-		been thinking about for a while.</p>
+	<p>After finishing Terry Pratchett's <cite>Going Postal</cite>, an eight day story about a conman turned postmaster, we read <cite>Death and the Compass</cite> and watched the short film adaptation <cite><a href="https://www.youtube.com/embed/j_UfUxm9Xko?mute=1">Spiderweb</a></cite> directed by Paul Miller.</p>
+	<p>The first sentence of the story, as translated by Donald A. Yates, is: <q>Of the many problems which exercised the reckless discernment of Lönnrot, none was so strange—so rigorously strange, shall we say—as the periodic series of bloody events which culminated at the villa of Triste-le-Roy, amid the ceaseless aroma of the eucalypti.</q></p>
+	<p>I read this in the book <cite><a href="https://archive.org/details/labyrinths0000unse_y9b3">Labyrinths</a></cite>, and we noted that translator Anthony Kerrigan worded it as the exercise of <q>daring perspicacity</q> in the text other club members read. The line came up again as the first narration of <cite>Spiderweb</cite>: <q>Of the many unusual cases which challenged the powers of the celebrated investigator Erik Lönnrot, none was as bizarre as the periodic series of events which came to a conclusion at the desolate mansion of Triste-le-Roy amid the heady aroma of eucalyptus.</q></p>
+	<p>I liked the story, its half hour adaptation, and the cover of the copy of <cite>Labyrinths</cite> I checked out at Neilson Library:</p>
+	<img loading="lazy" height="400" src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
+	<p>A slightly different version of the cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">Jason Fulford's website</a> (<a href="https://www.jasonfulford.com/scans/labyrinths_7.jpg">jpg</a>). The mirrored pentagon inspired me to put together a little polygon reflection project I had been thinking about for a while.</p>
 	<section class="projects" id="66c_mirror_polygon">
-		<h3>SVG Mirror Polygon</h3>
-		<p><a href="https://06tron.github.io/blog/66c/mirror_polygon.svg">06tron.github.io/blog/66c/mirror_polygon.svg</a></p>
-		<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place 
-			a polygon, and the next click will place a reflection of the polygon across one of its sides. 
-			The most recently placed polygon is selected, unless you shift-click to select another one. 
-			Shift-click the background to select none, and press backspace or delete to remove the selected 
-			polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
-		<iframe src="&labyrinths_mp;"></iframe>
-		<p>The following parameters listed with their default values can be edited using a query string:</p>
-		<dl>
-			<dt>borderColor</dt><dd>CanvasText</dd>
-			<dt>decimalPlaces</dt><dd>12</dd>
-			<dt>fillColor</dt><dd>red</dd>
-			<dt>heightOfPolygon</dt><dd>10</dd>
-			<dt>inlineStyle</dt><dd>color-scheme: light dark; background-color: Canvas</dd>
-			<dt>selectedWidth</dt><dd>.5</dd>
-			<dt>unselectedWidth</dt><dd>.1</dd>
-			<dt>vertices</dt><dd>5</dd>
-		</dl>
-		<p>Set the values using the first letter of the parameter name. The default values for the polygon 
-			border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">system 
-			colors</a>. The width variables adjust the size of the polygon's border. The vertices parameter 
-			can either be a number 3 or greater, or a 2D array of points defining any polygon. Convex 
-			polygons work best, and if you only specify the number of vertices then a regular polygon 
-			will be used.</p>
-		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. 
-			I abbreviated the anchor text to include less digits, and some characters should be percent-encoded. 
-			This is a octagon that fits well inside a regular pentagon: <a href="https://06tron.github.io/blog/66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. 
-			The fill color %23000 means #000 or the color black. One more example: <a href="https://06tron.github.io/blog/66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov 
-			... AS17-134-20387.jpg")</a>.</p>
+	<h3>SVG Mirror Polygon</h3>
+	<p><a href="&site_path;/66c/mirror_polygon.svg">&site_path;/66c/mirror_polygon.svg</a></p>
+	<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place a polygon, and the next click will place a reflection of the polygon across one of its sides. The most recently placed polygon is selected, unless you shift-click to select another one. Shift-click the background to select none, and press backspace or delete to remove the selected polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
+	<iframe src="&labyrinths_mp;"></iframe>
+	<p>The following parameters listed with their default values can be edited using a query string:</p>
+	<dl>
+		<dt>borderColor</dt><dd>CanvasText</dd>
+		<dt>decimalPlaces</dt><dd>12</dd>
+		<dt>fillColor</dt><dd>red</dd>
+		<dt>heightOfPolygon</dt><dd>10</dd>
+		<dt>inlineStyle</dt><dd>color-scheme: light dark; background-color: Canvas</dd>
+		<dt>selectedWidth</dt><dd>.5</dd>
+		<dt>unselectedWidth</dt><dd>.1</dd>
+		<dt>vertices</dt><dd>5</dd>
+	</dl>
+	<p>Set the values using the first letter of the parameter name. The default values for the polygon border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">system colors</a>. The width variables adjust the size of the polygon's border. The vertices parameter can either be a number 3 or greater, or a 2D array of points defining any polygon. Convex polygons work best, and if you only specify the number of vertices then a regular polygon will be used.</p>
+	<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded. This is a octagon that fits well inside a regular pentagon: <a href="&site_path;/66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="&site_path;/66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov ... AS17-134-20387.jpg")</a>.</p>
 	</section>
 	<h3>Footnotes</h3>
-	<p>Over my summer break, which ends in a week, I walked by Buckminster Fuller's gravestone on the 
-		Bellwort Path at Mount Auburn Cemetery.</p>
-	<p>The book cover image above was accessed through the <a href="https://openlibrary.org/dev/docs/api/covers">Open 
-		Library covers API</a>.</p>
+	<p>Over my summer break, which ends in a week, I walked by Buckminster Fuller's gravestone on the Bellwort Path at Mount Auburn Cemetery.</p>
+	<p>The book cover image above was accessed through the <a href="https://openlibrary.org/dev/docs/api/covers">Open Library covers API</a>.</p>
 	<section class="encodings">
-		<h3>Embedded List</h3>
-		<pre>
-               46 45 44 43 42 41 40
+	<h3>Embedded List</h3>
+	<pre>   <!--
+-->            46 45 44 43 42 41 40
                47                39
                48                38
                49                37
@@ -112,7 +80,7 @@
 	</section>
 </div>
 </content>
-<link rel="alternate" href="https://06tron.github.io/blog#1"/>
+<link rel="alternate" href="&site_path;#1"/>
 </entry>
 
 </feed>

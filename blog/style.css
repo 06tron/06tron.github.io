@@ -1,3 +1,7 @@
+a.naked::after {
+	content: attr(href)
+}
+
 article {
 	margin-top: 4em;
 }
@@ -16,6 +20,7 @@ body {
 
 dl {
 	display: grid;
+	line-height: 1.3;
 	max-width: max-content;
 }
 
@@ -30,17 +35,15 @@ iframe {
 }
 
 img {
-	margin-left: 4em;
-	max-height: 500px;
+	/* set the height attribute in html */
 	overflow-x: auto;
 }
 
 p {
-	line-height: 1.4;
+	line-height: 1.3;
 }
 
 pre {
 	font-size: larger;
-	margin-left: 4em;
 	overflow-x: auto;
 }
