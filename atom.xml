@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE feed [
-	<!ENTITY site_path "https://06tron.github.io/blog">
+	<!ENTITY site_path "https://06tron.github.io">
 	<!ENTITY labyrinths_mp "&site_path;/66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
 ]>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -20,7 +20,7 @@
 	<uri>https://orcid.org/0009-0001-0977-2029</uri>
 </author>
 <link rel="self" href="&site_path;/atom.xml"/>
-<icon>https://06tron.github.io/icons/48.svg</icon>
+<icon>&site_path;/icons/48.svg</icon>
 
 <entry>
 <title>66c - Death and the Compass</title>
@@ -80,7 +80,7 @@
 	</section>
 </div>
 </content>
-<link rel="alternate" href="&site_path;#1"/>
+<link rel="alternate" href="&site_path;/blog#1"/>
 </entry>
 
 </feed>
