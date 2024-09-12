@@ -7,7 +7,7 @@
 	<meta name="color-scheme" content="dark light">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -63,7 +63,7 @@
 
 		const req = new XMLHttpRequest();
 		req.onload = () => displayAtomFeed(req.responseXML);
-		const feedUrl = new URLSearchParams(window.location.search).get('f') ?? "https://06tron.github.io/blog/atom.xml";
+		const feedUrl = new URLSearchParams(window.location.search).get('f') ?? "https://06tron.github.io/atom.xml";
 		req.open("GET", feedUrl);
 		req.send();
 	</script>
