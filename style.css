@@ -1,0 +1,87 @@
+a.naked::after {
+	content: attr(href)
+}
+
+article {
+	margin-top: 4rem;
+}
+
+aside {
+	border-top: 1px solid;
+	font-size: smaller;
+	margin-left: 4rem;
+	max-width: max-content;
+}
+
+body {
+	font-family: Courier, monospace;
+	margin: 0 2rem 1rem;
+}
+
+dl {
+	display: grid;
+	line-height: 1.3;
+	max-width: max-content;
+}
+
+dl dd {
+	grid-column-start: 2;
+}
+
+figure {
+	margin: 0 auto;
+	overflow-x: auto;
+	max-width: min-content;
+}
+
+figure img {
+	vertical-align: bottom;
+}
+
+iframe {
+	border: 2px solid;
+    height: 500px;
+	width: 100%;
+}
+
+p {
+	line-height: 1.3;
+	margin: 1rem 0;
+}
+
+pre {
+	font-size: larger;
+	overflow-x: auto;
+}
+
+section.featured {
+	background-color: color-mix(in srgb, DeepPink, transparent 75%);
+	box-shadow: 0 0 0 15px color-mix(in srgb, DeepPink, transparent 95%);
+	margin: 30px 15px;
+	padding: 1rem;
+}
+
+section.featured h3 {
+	margin-top: 0;
+	text-align: center;
+}
+
+section.featured p:last-child {
+	margin-bottom: 0;
+}
+
+span.serif {
+	font-family: "EB Garamond", "American Typewriter", serif;
+	font-size: 1.7em;
+	font-weight: normal;
+}
+
+#collage_619 {
+	position: relative;
+}
+
+#collage_619 figure figcaption {
+	max-width: 390px;
+	position: absolute;
+	top: 294px;
+}

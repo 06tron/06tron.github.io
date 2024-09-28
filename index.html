@@ -2,79 +2,57 @@
 <html lang="en">
 
 <head>
-	<title>MR</title>
+	<title>Sixtron Home</title>
+	<meta charset="utf-8">
 	<link rel="icon" type="image/svg+xml" href="icons/48.svg">
 	<link rel="icon" type="image/png" href="icons/16.png">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&text=MathewRicrdsonNumbSpA%E2%9D%A6&display=swap">
+	<meta name="color-scheme" content="dark light">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
+	<style>
+		h2 {
+			text-align: right;
+		}
+	</style>
 </head>
 
 <body>
-	<h1>Matthew Richardson</h1>
-	<div class="column edge">
-		<div class="section">
-			<h3>Number Space</h3>
-			<img class="center" src="portals.svg" alt="Small Sudoku Puzzle">
-			<p>
-				A Sudoku variant that doesn't change anything but the shape of the puzzle.
-				This <a href="https://06tron.github.io/numberspace/">interactive website</a> is a work in progress.
-				So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.
-			</p>
-			<p>
-				These oddly shaped puzzles can be modeled with a graph structure.
-				Suppose there is a vertex for each cell in the puzzle.
-				For example a regular Sudoku puzzle would have 81 vertices.
-				The player traverses this graph by moving their mouse between adjacent cells.
-			</p>
-			<p>
-				During puzzle navigation there are two components to the player's position:
-				Where are they in the puzzle? And how is this location placed on the screen?
-				Where they are is at the current vertex, which represents one of the puzzle's cells.
-				This cell's placement on the screen is the player's "level".
-				The level describes the cell's horizontal position, vertical position, and orientation.
-				There are eight possible orientations in this game, which correspond to the symmetries of a square.
-			</p>
-			<p>
-				The player's position changes frequently, so these two components must change accordingly.
-				Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints.
-				The level is represented with a similar matrix.
-				Every time the player moves to a new cell, they follow a single edge in the graph.
-				The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge.
-			</p>
-		</div>
-	</div>
-	<img class="column center" src="A Crow's Head.png" loading="lazy" alt="A Crow's Head">
-	<div class="column edge short">
-		<p>
-			I put this collage together in November 2021, using material related to books published by the University of
-			Massachusetts Press.
-		</p>
-	</div>
-	<div class="column edge">
-		<div class="section">
-			<p>
-				See my <a href="https://www.linkedin.com/in/3mrichardson/">LinkedIn profile</a>.
-			</p>
-			<p>
-				View this page's <a href="https://github.com/06tron/06tron.github.io/">source on GitHub</a>.
-			</p>
-		</div>
-		<div class="section">
-			<h3>About me</h3>
-			<img class="center" src="mt_tom.jpg" alt="Portrait Photo">
-			<p>
-				I'm a computer science student at UMass Amherst, working on a bachelor's degree.
-				My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.
-			</p>
-		</div>
-		<h1>&#10086;</h1>
-	</div>
-	<div class="footer">
-		<p>
-			Updated August 2024
-		</p>
-	</div>
+	<script>
+		/**
+		 * @param {Document} atomDoc
+		 */
+		function displaySections(atomDoc) {
+			let selector = new URLSearchParams(window.location.search).get("s");
+			const h1 = document.createElement("h1");
+			if (selector === null) {
+				document.title = "MR Home";
+				const span = document.createElement("span");
+				span.textContent = "Matthew Richardson";
+				span.classList.add("serif")
+				h1.appendChild(span);
+				h1.style.textAlign = "center";
+				selector = ".featured,#collage_619"
+			} else {
+				document.title = `MR (${selector})`;
+				h1.textContent = selector;
+			}
+			document.body.appendChild(h1);
+			let i = 0;
+			for (const element of atomDoc.querySelectorAll(selector)) {
+				const h2 = document.createElement("h2");
+				h2.textContent = (++i).toString();
+				document.body.appendChild(h2);
+				document.body.appendChild(element);
+			}
+		}
+
+		const req = new XMLHttpRequest();
+		req.onload = () => displaySections(req.responseXML);
+		req.open("GET", "https://06tron.github.io/blog/atom.xml");
+		req.send();
+	</script>
 </body>
 
 </html>

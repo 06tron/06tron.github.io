@@ -14,7 +14,7 @@
 </div>
 </subtitle>
 <id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
-<updated>2024-08-30T23:36:33-04:00</updated>
+<updated>2024-09-27T15:01:38-04:00</updated>
 <author>
 	<name>Matthew Richardson</name>
 	<uri>https://orcid.org/0009-0001-0977-2029</uri>
@@ -23,10 +23,50 @@
 <icon>&site_path;/icons/48.svg</icon>
 
 <entry>
+<title>66f - Square Mesh Navigation</title>
+<id>urn:uuid:61121CBE-CE84-4E17-8134-A62BBC81EEA6</id>
+<published>2024-09-27T15:01:38-04:00</published>
+<updated>2024-09-27T15:01:38-04:00</updated>
+<content type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	<p>This is the content currently featured on my website's home page. I may edit the "About Me" section in the future, but the Number Space description I wrote in early 2023 should stay the same.</p>
+	<section class="featured">
+		<h3><span class="serif">Number Space</span></h3>
+		<figure>
+			<img height="162" loading="lazy" src="668/ns_portals.svg" alt="small sudoku puzzle"/>
+		</figure>
+		<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="&site_path;/numberspace/">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
+		<p>These oddly shaped puzzles can be modeled with a graph structure. Suppose there is a vertex for each cell in the puzzle. For example a regular Sudoku puzzle would have 81 vertices. The player traverses this graph by moving their mouse between adjacent cells.</p>
+		<p>During puzzle navigation there are two components to the player's position: Where are they in the puzzle? And how is this location placed on the screen? Where they are is at the current vertex, which represents one of the puzzle's cells. This cell's placement on the screen is the player's "level". The level describes the cell's horizontal position, vertical position, and orientation. There are eight possible orientations in this game, which correspond to the symmetries of a square.</p>
+		<p>The player's position changes frequently, so these two components must change accordingly. Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints. The level is represented with a similar matrix. Every time the player moves to a new cell, they follow a single edge in the graph. The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge. </p>
+	</section>
+	<div id="collage_619">
+		<figure>
+			<img height="711" loading="lazy" src="619/A Crow's Head.png" alt="two piece collage"/>
+			<figcaption>
+				<p>I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.</p>
+			</figcaption>
+		</figure>
+	</div>
+	<section class="featured">
+		<h3><span class="serif">About Me</span></h3>
+		<figure>
+			<img height="162" loading="lazy" src="613/mt_tom.jpg" alt="portrait photo"/>
+		</figure>
+		<p>I'm a computer science student at UMass Amherst, working on a master's degree. My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.</p>
+		<p>See my <a href="https://www.linkedin.com/in/3mrichardson/">LinkedIn profile</a>.</p>
+		<p>View this page's <a href="https://github.com/06tron/06tron.github.io/">source on GitHub</a>.</p>
+	</section>
+</div>
+</content>
+<link rel="alternate" href="&site_path;/blog#2"/>
+</entry>
+
+<entry>
 <title>66c - Death and the Compass</title>
 <id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
 <published>2024-08-27T22:07:34-06:00</published>
-<updated>2024-08-30T23:36:33-04:00</updated>
+<updated>2024-09-27T15:01:38-04:00</updated>
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
 	<p>I first learned about Jorge Luis Borges and his short story <cite>Death and the Compass</cite> in 2022 while reading George Fayen's essay in the book <cite><a href="https://www.wikidata.org/wiki/Q126176127">Patterns of Symmetry</a></cite>. In July 2024 I read the story and discussed it with a book club run by my school's library.</p>
@@ -35,13 +75,15 @@
 	<p>The first sentence of the story, as translated by Donald A. Yates, is: <q>Of the many problems which exercised the reckless discernment of Lönnrot, none was so strange—so rigorously strange, shall we say—as the periodic series of bloody events which culminated at the villa of Triste-le-Roy, amid the ceaseless aroma of the eucalypti.</q></p>
 	<p>I read this in the book <cite><a href="https://archive.org/details/labyrinths0000unse_y9b3">Labyrinths</a></cite>, and we noted that translator Anthony Kerrigan worded it as the exercise of <q>daring perspicacity</q> in the text other club members read. The line came up again as the first narration of <cite>Spiderweb</cite>: <q>Of the many unusual cases which challenged the powers of the celebrated investigator Erik Lönnrot, none was as bizarre as the periodic series of events which came to a conclusion at the desolate mansion of Triste-le-Roy amid the heady aroma of eucalyptus.</q></p>
 	<p>I liked the story, its half hour adaptation, and the cover of the copy of <cite>Labyrinths</cite> I checked out at Neilson Library:</p>
-	<img loading="lazy" height="400" src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
+	<figure>
+		<img height="400" loading="lazy" src="https://covers.openlibrary.org/b/olid/OL8000085M-L.jpg" alt="Labyrinths 2007 cover art"/>
+	</figure>
 	<p>A slightly different version of the cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">Jason Fulford's website</a> (<a href="https://www.jasonfulford.com/scans/labyrinths_7.jpg">jpg</a>). The mirrored pentagon inspired me to put together a little polygon reflection project I had been thinking about for a while.</p>
-	<section class="projects" id="66c_mirror_polygon">
-		<h3>SVG Mirror Polygon</h3>
+	<section class="projects" id="mirror_polygon_66c">
+		<h3><span class="serif">SVG Mirror Polygon</span></h3>
 		<p><a href="&site_path;/66c/mirror_polygon.svg">&site_path;/66c/mirror_polygon.svg</a></p>
 		<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place a polygon, and the next click will place a reflection of the polygon across one of its sides. The most recently placed polygon is selected, unless you shift-click to select another one. Shift-click the background to select none, and press backspace or delete to remove the selected polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
-		<iframe src="&labyrinths_mp;"></iframe>
+		<iframe loading="lazy" src="&labyrinths_mp;"></iframe>
 		<p>The following parameters listed with their default values can be edited using a query string:</p>
 		<dl>
 			<dt>borderColor</dt><dd>CanvasText</dd>

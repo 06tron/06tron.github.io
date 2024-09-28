@@ -123,7 +123,7 @@ function recenterPolygon(vertexString) {
  * @returns {[number, number][]}
  */
 function regularPolygon(n) {
-	let vts = [];
+	const vts = [];
 	const centerAngle = 2 * Math.PI / n;
 	for (let i = 0; i < n; ++i) {
 		vts.push([
@@ -157,7 +157,7 @@ const params = {
 	decimalPlaces: "12",
 	fillColor: "red",
 	heightOfPolygon: "10",
-	inlineStyle: "color-scheme: light dark; background-color: Canvas",
+	inlineStyle: "background-color: Canvas; color-scheme: light dark",
 	selectedWidth: ".5",
 	unselectedWidth: ".1",
 	vertices: "5"
@@ -225,8 +225,14 @@ function setSelected(target) {
  */
 function addPolygon(matrix) {
 	const pg = polygonElement.cloneNode(false);
-	const svgT = svg.createSVGTransform();
-	svgT.setMatrix(matrix);
+	// /* Converts the DOMMatrix to an SVGMatrix to avoid errors
+	// observed in Chrome and MS Edge, but this should not be
+	// necessary with SVG 2.
+	matrix = "abcdef".split('').reduce(function (svgM, e) {
+		svgM[e] = matrix[e];
+		return svgM;
+	}, svg.createSVGMatrix()); // */
+	const svgT = svg.createSVGTransformFromMatrix(matrix);
 	pg.transform.baseVal.appendItem(svgT);
 	svg.appendChild(pg);
 	setSelected(pg);
