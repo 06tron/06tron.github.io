@@ -7,13 +7,19 @@
 	<link rel="icon" type="image/svg+xml" href="icons/48.svg">
 	<link rel="icon" type="image/png" href="icons/16.png">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&text=MathewRicrdsonNumbSpA%E2%9D%A6&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&text=MathewRicrdsonNumbSpA%E2%9D%A6VGPlyg&display=swap">
 	<meta name="color-scheme" content="dark light">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<style>
 		h2 {
+			font-weight: normal;
+			margin: 0;
 			text-align: right;
+		}
+		h2 a {
+			color: CanvasText;
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -25,27 +31,45 @@
 		 */
 		function displaySections(atomDoc) {
 			let selector = new URLSearchParams(window.location.search).get("s");
+			const homePage = selector === null;
 			const h1 = document.createElement("h1");
-			if (selector === null) {
+			if (homePage) {
 				document.title = "MR Home";
 				const span = document.createElement("span");
 				span.textContent = "Matthew Richardson";
-				span.classList.add("serif")
-				h1.appendChild(span);
+				span.classList.add("serif");
 				h1.style.textAlign = "center";
+				h1.style.margin = "1rem 0 -1em";
+				h1.appendChild(span);
+				document.body.appendChild(h1);
+				const h2 = document.createElement("h2");
+				const a = document.createElement("a");
+				a.textContent = "blog";
+				a.href = "https://06tron.github.io/blog";
+				h2.appendChild(a); 
+				document.body.appendChild(h2);
 				selector = ".featured,#collage_619"
 			} else {
 				document.title = `MR (${selector})`;
 				h1.textContent = selector;
+				document.body.appendChild(h1);
 			}
-			document.body.appendChild(h1);
 			let i = 0;
 			for (const element of atomDoc.querySelectorAll(selector)) {
-				const h2 = document.createElement("h2");
-				h2.textContent = (++i).toString();
-				document.body.appendChild(h2);
+				if (!homePage) {
+					const h2 = document.createElement("h2");
+					h2.textContent = (++i).toString();
+					document.body.appendChild(h2);
+				}
 				document.body.appendChild(element);
 			}
+			const p = document.createElement("p");
+			const span = document.createElement("span");
+			span.textContent = "❦";
+			span.classList.add("serif");
+			p.style.textAlign = "center";
+			p.appendChild(span);
+			document.body.appendChild(p);
 		}
 
 		const req = new XMLHttpRequest();
