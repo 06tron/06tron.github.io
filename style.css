@@ -47,6 +47,7 @@ iframe {
 p {
 	line-height: 1.3;
 	margin: 1rem 0;
+	overflow-wrap: break-word;
 }
 
 pre {
