@@ -16,6 +16,7 @@ aside {
 body {
 	font-family: Courier, monospace;
 	margin: 0 2rem 1rem;
+	max-width: 60rem;
 }
 
 dl {
