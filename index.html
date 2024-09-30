@@ -23,6 +23,9 @@
 			padding: 0.1rem 0.4rem;
 			text-decoration: none;
 		}
+		h2 a:hover {
+			text-decoration: underline;
+		}
 	</style>
 </head>
 
@@ -51,13 +54,19 @@
 				h2.appendChild(a); 
 				document.body.appendChild(h2);
 				selector = ".featured,#collage_619"
-			} else {
+			}
+			const selected = atomDoc.querySelectorAll(selector);
+			if (!homePage){
 				document.title = `MR (${selector})`;
+				if (selected.length == 1) {
+					document.body.appendChild(selected[0]);
+					return;
+				}
 				h1.textContent = selector;
 				document.body.appendChild(h1);
 			}
 			let i = 0;
-			for (const element of atomDoc.querySelectorAll(selector)) {
+			for (const element of selected) {
 				if (!homePage) {
 					const h2 = document.createElement("h2");
 					h2.textContent = (++i).toString();
