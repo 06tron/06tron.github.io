@@ -4,13 +4,13 @@
 
 [HTML browser note](https://06tron.github.io/66c/browser_note.html) ([source](66c/browser_note.html))
 
-[HTML web blog](https://06tron.github.io/blog/index.html) ([source](blog/index.html))
+[HTML web blog](https://06tron.github.io/blog/) ([source](blog/index.html))
 
-[HTML website home](https://06tron.github.io/index.html) ([source](index.xml))
+[HTML website home](https://06tron.github.io/) ([source](index.xml))
 
-[list of images from the blog](https://06tron.github.io/index.html?s=entry+content+img)
+[list of images from the blog](https://06tron.github.io/?s=entry+content+img)
 
-[mirror polygon drawing tool](https://06tron.github.io/index.html?s=%23mirror_polygon_66c) ([source](66c/mirror_polygon.svg))
+[mirror polygon drawing tool](https://06tron.github.io/?s=%23mirror_polygon_66c) ([source](66c/script.js))
 
 [PNG two-part collage](https://06tron.github.io/619/A%20Crow's%20Head.png)
 
