@@ -1,45 +1,23 @@
-# portfolio
+# website
 
-### number space
+### content
 
-![Small Sudoku Puzzle](thumbs/hallway_portals.png)
+[ATOM feed](atom.xml)
 
-A Sudoku variant that doesn't change anything but the shape of the puzzle.
-This [interactive website](https://06tron.github.io/numberspace/) is a work in progress.
-So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.
+[HTML browser note](66c/browser_note.html)
 
-These oddly shaped puzzles can be modeled with a graph structure.
-Suppose there is a vertex for each cell in the puzzle.
-For example a regular Sudoku puzzle would have 81 vertices.
-The player traverses this graph by moving their mouse between adjacent cells.
+[HTML web blog](blog/index.html)
 
-During puzzle navigation there are two components to the player's position:
-Where are they in the puzzle? And how is this location placed on the screen?
-Where they are is at the current vertex, which represents one of the puzzle's cells.
-This cell's placement on the screen is the player's "level".
-The level describes the cell's horizontal position, vertical position, and orientation.
-There are eight possible orientations in this game, which correspond to the symmetries of a square.
+[HTML website home](index.html)
 
-The player's position changes frequently, so these two components must change accordingly.
-Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints.
-The level is represented with a similar matrix.
-Every time the player moves to a new cell, they follow a single edge in the graph.
-The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge.
+[PNG two-part collage](619/A%20Crow's%20Head.png)
 
-![A Crow's Head](A%20Crow's%20Head.png)
+[SVG 27-cell portal sudoku](668/ns_portals.svg)
 
-I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.
+[SVG website icon](icons/48.svg)
 
-See my [LinkedIn profile](https://www.linkedin.com/in/3mrichardson/).
+[list of images from the blog](index.html?s=entry+content+img)
 
-### about me
-
-![Portrait Photo](thumbs/mt_tom.jpg)
-
-I'm a computer science student at UMass Amherst, working on a bachelor's degree.
-My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.
+[mirror polygon drawing tool](index.html?s=%23mirror_polygon_66c)
 
 # &#10086;
-
-Bookmark a link like this one for a simple note in the browser:  
-data:text/html,%3Cbody%20contenteditable%20style=%22font-family:Courier,monospace;line-height:1.4;padding:4em;%22%3E
