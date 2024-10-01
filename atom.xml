@@ -31,7 +31,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
 	<p>This is the content currently featured on my website's home page. I may edit the "About Me" section in the future, but the Number Space description I wrote in early 2023 should stay the same.</p>
 	<section class="featured">
-		<h3><span class="serif">Number Space</span></h3>
+		<h3><span class="fl">Number Space</span></h3>
 		<figure>
 			<img height="162" loading="lazy" src="&site_path;/668/ns_portals.svg" alt="small sudoku puzzle"/>
 		</figure>
@@ -49,7 +49,7 @@
 		</figure>
 	</div>
 	<section class="featured">
-		<h3><span class="serif">About Me</span></h3>
+		<h3><span class="fl">About Me</span></h3>
 		<figure>
 			<img height="162" loading="lazy" src="&site_path;/613/mt_tom.jpg" alt="portrait photo"/>
 		</figure>
@@ -80,7 +80,7 @@
 	</figure>
 	<p>A slightly different version of the cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">Jason Fulford's website</a> (<a href="https://www.jasonfulford.com/scans/labyrinths_7.jpg">jpg</a>). The mirrored pentagon inspired me to put together a little polygon reflection project I had been thinking about for a while.</p>
 	<section class="projects" id="mirror_polygon_66c">
-		<h3><span class="serif">SVG Mirror Polygon</span></h3>
+		<h3><span class="fl">SVG Mirror Polygon</span></h3>
 		<p><a href="&site_path;/66c/mirror_polygon.svg">&site_path;/66c/mirror_polygon.svg</a></p>
 		<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place a polygon, and the next click will place a reflection of the polygon across one of its sides. The most recently placed polygon is selected, unless you shift-click to select another one. Shift-click the background to select none, and press backspace or delete to remove the selected polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
 		<iframe loading="lazy" src="&labyrinths_mp;"></iframe>

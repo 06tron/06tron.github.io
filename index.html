@@ -31,28 +31,17 @@
 
 <body>
 	<script>
+		const sitePath = "https://06tron.github.io";
+
 		/**
 		 * @param {Document} atomDoc
 		 */
 		function displaySections(atomDoc) {
 			let selector = new URLSearchParams(window.location.search).get("s");
 			const homePage = selector === null;
-			const h1 = document.createElement("h1");
 			if (homePage) {
 				document.title = "MR Home";
-				const span = document.createElement("span");
-				span.textContent = "Matthew Richardson";
-				span.classList.add("serif");
-				h1.style.textAlign = "center";
-				h1.style.margin = "1rem 0 -1em";
-				h1.appendChild(span);
-				document.body.appendChild(h1);
-				const h2 = document.createElement("h2");
-				const a = document.createElement("a");
-				a.textContent = "blog";
-				a.href = "https://06tron.github.io/blog";
-				h2.appendChild(a); 
-				document.body.appendChild(h2);
+				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="${sitePath}/blog">blog</a></h2>`);
 				selector = ".featured,#collage_619"
 			}
 			const selected = atomDoc.querySelectorAll(selector);
@@ -62,30 +51,21 @@
 					document.body.appendChild(selected[0]);
 					return;
 				}
-				h1.textContent = selector;
-				document.body.appendChild(h1);
+				document.body.insertAdjacentHTML("afterbegin", `<h1>${selector}</h1>`);
 			}
 			let i = 0;
 			for (const element of selected) {
 				if (!homePage) {
-					const h2 = document.createElement("h2");
-					h2.textContent = (++i).toString();
-					document.body.appendChild(h2);
+					document.body.insertAdjacentHTML("beforeend", `<h2>${(++i).toString()}</h2>`);
 				}
 				document.body.appendChild(element);
 			}
-			const p = document.createElement("p");
-			const span = document.createElement("span");
-			span.textContent = "❦";
-			span.classList.add("serif");
-			p.style.textAlign = "center";
-			p.appendChild(span);
-			document.body.appendChild(p);
+			document.body.insertAdjacentHTML("beforeend", `<p style="text-align: center"><span class="fl">❦</span></p>`);
 		}
 
 		const req = new XMLHttpRequest();
 		req.onload = () => displaySections(req.responseXML);
-		req.open("GET", "https://06tron.github.io/atom.xml");
+		req.open("GET", sitePath + "/atom.xml");
 		req.send();
 	</script>
 </body>
