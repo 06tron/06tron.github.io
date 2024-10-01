@@ -14,7 +14,7 @@ aside {
 }
 
 body {
-	font-family: Courier, monospace;
+	font-family: "Segoe UI", Courier, monospace;
 	margin: 0 2rem 1rem;
 	max-width: 60rem;
 }
@@ -41,7 +41,7 @@ figure img {
 
 iframe {
 	border: 2px solid;
-    height: 500px;
+	height: 500px;
 	width: 100%;
 }
 
@@ -73,7 +73,7 @@ section.featured p:last-child {
 }
 
 span.serif {
-	font-family: "EB Garamond", "American Typewriter", serif;
+	font-family: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
 	font-size: 1.7em;
 	font-weight: normal;
 }
