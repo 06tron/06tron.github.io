@@ -1,5 +1,9 @@
 # website
 
+designed around an [Atom](https://validator.w3.org/feed/docs/atom.html) feed
+
+### in this repository
+
 [Atom feed](https://github.io/06tron/atom.xml) ([source](atom.xml))
 
 [HTML browser note](https://06tron.github.io/66c/browser_note.html) ([source](66c/browser_note.html))
@@ -17,5 +21,11 @@
 [SVG 27-cell portal sudoku](https://06tron.github.io/668/ns_portals.svg) ([source](668/ns_portals.svg))
 
 [SVG website icon](https://06tron.github.io/icons/48.svg) ([source](icons/48.svg))
+
+### to do
+
+display the times an entry was published and updated
+
+add a way to share an entry via a data URI
 
 ### &#10086;
