@@ -114,7 +114,7 @@ function recenterPolygon(vertexString) {
 		if (vts instanceof Array) {
 			return vts.map(add2D(vts.reduce(add2D, [0, 0]).map(x => x / -vts.length)));
 		}
-		} catch {}
+	} catch {}
 	return null;
 }
 
@@ -228,7 +228,7 @@ function addPolygon(matrix) {
 	// /* Converts the DOMMatrix to an SVGMatrix to avoid errors
 	// observed in Chrome and MS Edge, but this should not be
 	// necessary with SVG 2.
-	matrix = "abcdef".split('').reduce(function (svgM, e) {
+	matrix = "abcdef".split("").reduce(function (svgM, e) {
 		svgM[e] = matrix[e];
 		return svgM;
 	}, svg.createSVGMatrix()); // */
@@ -263,7 +263,7 @@ function deletePolygon() {
  * Finally, the character "#" is not escaped, but as it
  * indicates the beginning of a fragment identifier it is not
  * allowed in the data component of a data URI.
- * @param {string} xml 
+ * @param {string} xml
  */
 function svgDataURI(xml) {
 	return "data:image/svg+xml;charset=UTF-8," + encodeURI(xml).replaceAll("#", "%23");
