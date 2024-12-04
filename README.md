@@ -6,7 +6,7 @@ designed around an [Atom](https://validator.w3.org/feed/docs/atom.html) feed
 
 [Atom feed](https://github.io/06tron/atom.xml) ([source](atom.xml))
 
-[HTML browser note](https://06tron.github.io/66c/browser_note.html) ([source](66c/browser_note.html))
+[HTML browser note](https://06tron.github.io/66c/browser_note.html?s=export+to+txt) ([source](66c/browser_note.html))
 
 [HTML web blog](https://06tron.github.io/blog/) ([source](blog/index.html))
 
