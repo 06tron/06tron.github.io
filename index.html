@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-	<title>Sixtron Home</title>
+	<title>MR Home</title>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/svg+xml" href="icons/48.svg">
 	<link rel="icon" type="image/png" href="icons/16.png">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&text=MathewRicrdsonNumbSpA%E2%9D%A6VGPlyg&display=swap">
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<meta name="color-scheme" content="dark light">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<style>
 		h2 {
 			font-weight: normal;
@@ -33,32 +33,30 @@
 	<script>
 		const sitePath = "https://06tron.github.io";
 
-		/**
-		 * @param {Document} atomDoc
-		 */
 		function displaySections(atomDoc) {
 			let selector = new URLSearchParams(window.location.search).get("s");
 			const homePage = selector === null;
 			if (homePage) {
-				document.title = "MR Home";
 				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="${sitePath}/blog">blog</a></h2>`);
-				selector = ".featured,#collage_619"
+				selector = ".featured,#collage_619";
 			}
 			const selected = atomDoc.querySelectorAll(selector);
-			if (!homePage){
+			if (homePage) {
+				for (const element of selected) {
+					document.body.appendChild(element);
+				}
+			} else {
 				document.title = `MR (${selector})`;
 				if (selected.length == 1) {
 					document.body.appendChild(selected[0]);
 					return;
 				}
 				document.body.insertAdjacentHTML("afterbegin", `<h1>${selector}</h1>`);
-			}
-			let i = 0;
-			for (const element of selected) {
-				if (!homePage) {
+				let i = 0;
+				for (const element of selected) {
 					document.body.insertAdjacentHTML("beforeend", `<h2>${(++i).toString()}</h2>`);
+					document.body.appendChild(element);
 				}
-				document.body.appendChild(element);
 			}
 			document.body.insertAdjacentHTML("beforeend", `<p style="text-align: center"><span class="fl">❦</span></p>`);
 		}
