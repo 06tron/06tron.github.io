@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE feed [
-	<!ENTITY site_path "https://06tron.github.io">
-	<!ENTITY labyrinths_mp "&site_path;/66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
+	<!ENTITY site_path "https://06tron.github.io/">
+	<!ENTITY labyrinths_mp "&site_path;66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
 ]>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
@@ -19,8 +19,8 @@
 	<name>Matthew Richardson</name>
 	<uri>https://orcid.org/0009-0001-0977-2029</uri>
 </author>
-<link rel="self" href="&site_path;/atom.xml"/>
-<icon>&site_path;/icons/48.svg</icon>
+<link rel="self" href="&site_path;atom.xml"/>
+<icon>&site_path;icons/48.svg</icon>
 
 <entry>
 <title>66f - Square Mesh Navigation</title>
@@ -33,16 +33,16 @@
 	<section class="featured">
 		<h3><span class="fl">Number Space</span></h3>
 		<figure>
-			<img height="162" loading="lazy" src="&site_path;/668/ns_portals.svg" alt="small sudoku puzzle"/>
+			<img height="162" loading="lazy" src="&site_path;668/ns_portals.svg" alt="small sudoku puzzle"/>
 		</figure>
-		<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="&site_path;/numberspace/">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
+		<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="&site_path;numberspace/">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
 		<p>These oddly shaped puzzles can be modeled with a graph structure. Suppose there is a vertex for each cell in the puzzle. For example a regular Sudoku puzzle would have 81 vertices. The player traverses this graph by moving their mouse between adjacent cells.</p>
 		<p>During puzzle navigation there are two components to the player's position: Where are they in the puzzle? And how is this location placed on the screen? Where they are is at the current vertex, which represents one of the puzzle's cells. This cell's placement on the screen is the player's "level". The level describes the cell's horizontal position, vertical position, and orientation. There are eight possible orientations in this game, which correspond to the symmetries of a square.</p>
 		<p>The player's position changes frequently, so these two components must change accordingly. Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints. The level is represented with a similar matrix. Every time the player moves to a new cell, they follow a single edge in the graph. The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge. </p>
 	</section>
 	<div id="collage_619">
 		<figure>
-			<img height="711" loading="lazy" src="&site_path;/619/A Crow's Head.png" alt="two piece collage"/>
+			<img height="711" loading="lazy" src="&site_path;619/A Crow's Head.png" alt="two piece collage"/>
 			<figcaption>
 				<p>I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.</p>
 			</figcaption>
@@ -51,7 +51,7 @@
 	<section class="featured">
 		<h3><span class="fl">About Me</span></h3>
 		<figure>
-			<img height="162" loading="lazy" src="&site_path;/613/mt_tom.jpg" alt="portrait photo"/>
+			<img height="162" loading="lazy" src="&site_path;613/mt_tom.jpg" alt="portrait photo"/>
 		</figure>
 		<p>I'm a computer science student at UMass Amherst, working on a master's degree. My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.</p>
 		<p>See my <a href="https://www.linkedin.com/in/3mrichardson/">LinkedIn profile</a>.</p>
@@ -59,7 +59,7 @@
 	</section>
 </div>
 </content>
-<link rel="alternate" href="&site_path;/blog#2"/>
+<link rel="alternate" href="&site_path;blog/#2"/>
 </entry>
 
 <entry>
@@ -81,7 +81,7 @@
 	<p>A slightly different version of the cover is featured on photographer <a href="https://www.jasonfulford.com/007b.html">Jason Fulford's website</a> (<a href="https://www.jasonfulford.com/scans/labyrinths_7.jpg">jpg</a>). The mirrored pentagon inspired me to put together a little polygon reflection project I had been thinking about for a while.</p>
 	<section class="projects" id="mirror_polygon_66c">
 		<h3><span class="fl">SVG Mirror Polygon</span></h3>
-		<p><a href="&site_path;/66c/mirror_polygon.svg">&site_path;/66c/mirror_polygon.svg</a></p>
+		<p><a href="&site_path;66c/mirror_polygon.svg">&site_path;66c/mirror_polygon.svg</a></p>
 		<p>This interactive polygon placement tool is an SVG image that edits itself. Click to place a polygon, and the next click will place a reflection of the polygon across one of its sides. The most recently placed polygon is selected, unless you shift-click to select another one. Shift-click the background to select none, and press backspace or delete to remove the selected polygon. Use control-C or command-C to copy a data URI containing the current image.</p>
 		<iframe loading="lazy" src="&labyrinths_mp;"></iframe>
 		<p>The following parameters listed with their default values can be edited using a query string:</p>
@@ -96,7 +96,7 @@
 			<dt>vertices</dt><dd>5</dd>
 		</dl>
 		<p>Set the values using the first letter of the parameter name. The default values for the polygon border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">system colors</a>. The width variables adjust the size of the polygon's border. The vertices parameter can either be a number 3 or greater, or a 2D array of points defining any polygon. Convex polygons work best, and if you only specify the number of vertices then a regular polygon will be used.</p>
-		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded. This is a octagon that fits well inside a regular pentagon: <a href="&site_path;/66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="&site_path;/66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov ... AS17-134-20387.jpg")</a>.</p>
+		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded. This is a octagon that fits well inside a regular pentagon: <a href="&site_path;66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="&site_path;66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov ... AS17-134-20387.jpg")</a>.</p>
 	</section>
 	<h3>Footnotes</h3>
 	<p>Over my summer break, which ends in a week, I walked by Buckminster Fuller's gravestone on the Bellwort Path at Mount Auburn Cemetery.</p>
@@ -122,7 +122,7 @@
 	</section>
 </div>
 </content>
-<link rel="alternate" href="&site_path;/blog#1"/>
+<link rel="alternate" href="&site_path;blog/#1"/>
 </entry>
 
 </feed>

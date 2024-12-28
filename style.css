@@ -58,7 +58,7 @@ pre {
 
 section.featured {
 	background-color: color-mix(in srgb, DeepPink, transparent 75%);
-	box-shadow: 0 0 0 15px color-mix(in srgb, DeepPink, transparent 95%);
+	box-shadow: 0 0 0 15px color-mix(in srgb, DeepPink, transparent 92%);
 	margin: 30px 15px;
 	padding: 1rem;
 }
