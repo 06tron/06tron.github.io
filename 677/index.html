@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HTML Viewer</title>
+	<meta charset="utf-8">
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
+	<meta name="color-scheme" content="light dark">
+	<meta name="description" content="HTML passed through the 'b' query parameter is directly copied into the body of this page">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<script>
+		document.body.innerHTML = new URLSearchParams(window.location.search).get("b");
+	</script>
+</body>
+
+</html>
