@@ -12,7 +12,22 @@
 
 <body>
 	<script>
-		document.body.innerHTML = new URLSearchParams(window.location.search).get("b");
+		function decodeQueryHTML(str) {
+			if (str === null) {
+				return null;
+			}
+			return str.replace(/[()*@]/g, function (char) {
+				return {
+					"(": "<",
+					")": ">",
+					"*": '"',
+					"@": "&"
+				}[char];
+			});
+		}
+		const query = new URLSearchParams(window.location.search);
+		const body = query.get("b") ?? decodeQueryHTML(query.get("h")) ?? document.querySelector('meta[name="description"]').content;
+		document.body.innerHTML = body;
 	</script>
 </body>
 
