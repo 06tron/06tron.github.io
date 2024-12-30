@@ -23,6 +23,54 @@
 <icon>&site_path;icons/48.svg</icon>
 
 <entry>
+<title>677 - URI Encoding</title>
+<id>urn:uuid:EAEDA2A5-9298-4206-9724-33AB1158DF5B</id>
+<published>2024-12-29T22:35:12-05:00</published>
+<updated>2024-12-29T22:35:12-05:00</updated>
+<content type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	<p>With the book club this past semester I read Daphne du Maurier's <cite><a href="https://www.wikidata.org/wiki/Q1334940">Rebecca</a></cite>, Gerald Durrell's <cite><a href="https://www.wikidata.org/wiki/Q1394009">My Family and Other Animals</a></cite>, and most of <a href="https://www.wikidata.org/wiki/Q3993282">Tony Mendez's</a> <cite>Argo</cite>. I also read Cormac McCarthy's <cite><a href="https://www.wikidata.org/wiki/Q264519">All the Pretty Horses</a></cite> and Oliver Burkeman's <cite><a href="https://www.wikidata.org/wiki/Q112227229">4000 Weeks</a></cite> on my own.</p>
+	<section class="software" id="percent_encode_677">
+		<h3><span class="fl">Percent-Encoding Guide</span></h3>
+		<p>According to <a href="https://www.rfc-editor.org/info/std66">STD 66 RFC 3986</a>, the characters of the string <q><code>!#$&amp;'()*+,/:;=?@[]</code></q> could have a special meaning in a URI and are reserved. The <a href="https://infra.spec.whatwg.org/#ascii-alphanumeric">ASCII alphanumeric</a> characters and those contained in <q><code>-._~</code></q> are unreserved. Any character outside of these two sets must be percent-encoded before inclusion in a URI. This is what the JavaScript <cite>encodeURI()</cite> function does, in addition to encoding the square brackets <q><code>[]</code></q> which were not yet included in the set of URI characters when the superseded <a href="https://www.rfc-editor.org/info/rfc2396">RFC 2396</a> was written.</p>
+		<p>The unreserved characters can always be left unencoded, so we just need to encode some subset of the reserved characters. This subset depends on the URI scheme being used and where in the URI the characters are. The <cite>encodeURIComponent()</cite> function encodes all of the reserved characters except for <q><code>!'()*</code></q> which probably don't need to be encoded as they weren't yet reserved in RFC 2396. We can encode a still smaller subset of the reserved characters in the following cases.</p>
+		<h4>Data URIs</h4>
+		<p><a href="https://www.rfc-editor.org/info/rfc2397">RFC 2397</a> states that the main content section of a data URI will consist of some number of 'uric' characters, and that these characters are defined in RFC 2396. It turns out that any percent-encoded, reserved, or unreserved character is allowed, except for <q><code>#[]</code></q> as these three are not 'uric' characters. The code below shows how an SVG data URI might be constructed.</p>
+		<pre>const rectSVG = String.raw`&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">&lt;rect fill="#69E" x="20" y="8" width="15.2" height="87"/>&lt;/svg>`;
+const rectDataURI = "data:image/svg+xml;charset=UTF-8," + encodeURI(rectSVG).replaceAll("#", "%23");</pre>
+		<p>The resulting string is <q><code>data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%3E%3Crect%20fill=%22%2369E%22%20x=%2220%22%20y=%228%22%20width=%2215.2%22%20height=%2287%22/%3E%3C/svg%3E</code></q>.</p>
+		<p>Note that <cite>String.raw()</cite> is helpful if the data contains backslashes, but if it contains backticks or the substring <q><code>${</code></q> then you can no longer simply paste the data into a template literal.</p>
+		<pre>String.raw`_\`_\${_${"`"}_` === "_\\`_\\${_`_"</pre>
+		<p>Since the square brackets were more recently reserved, I thought they might be allowed in data URIs, but as of now the link <a href="data:,%23[]">data:,%23[]</a> doesn't always work. Copying the URI into the address bar leads to data <q><code>#[]</code></q>, but clicking to open the link in a new Safari tab adds another encoding step and leads to data <q><code>%23[]</code></q>. I saw a few GitHub issues like <a href="https://github.com/whatwg/url/issues/753">this one</a> in support of unescaped square brackets, so they may be allowed in the future.</p>
+		<h4>Query Strings</h4>
+		<p>The query part of a URI begins after a question mark. It is composed of the 'query' characters defined in RFC 3986, and these are exactly the same as the 'uric' characters. However, the characters <q><code>&amp;+=</code></q> have special purposes. The query string is a set of 'key=value' pairs, separated by ampersands, and in which plus signs represent spaces. The equals sign needs to be encoded in the 'key' portion, but not in the 'value' portion as only the first equals sign separates the two parts. Encode the data as you would for a data URI, then handle these three special characters, and as a final step we can change the encoding of spaces from <q><code>%20</code></q> to <q><code>+</code></q>. <a href="data:text/html;charset=UTF-8,%22%20!%23$&amp;'()*+,/:;=?@%5B%5D%22%3Cbr%3E%3Ca%20href=%22data:,%2522%2520!%2523$&amp;'()*+,/:;=?@%255B%255D%2522%22%3Ein%20data%20URI%3C/a%3E%3Cbr%3E%3Ca%20href=%22https://6t.lt/?b=%2522+!%2523$%2526'()*%252B,/:;=?@%255B%255D%2522%22%3Ein%20query%20string%3C/a%3E">This data URI</a> contains two links which compare the encoding of the reserved characters and the space character in a data URI and in a query string.</p>
+		<pre>const inlineStyle = `background-image:url("${rectDataURI}");color-scheme:light dark`;
+const vertices = "[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]";
+
+function encodeQueryValue(val) {
+	return encodeURI(val).replace(/[#&amp;'+]|%20/g, function (char) {
+		return { "#": "%23", "&amp;": "%26", "'": "%27", "+": "%2B", "%20": "+" }[char];
+	});
+}
+
+const mirrorPolygonURL = `&site_path;66c/mirror_polygon.svg?h=6&amp;v=${encodeQueryValue(vertices)}&amp;i=${encodeQueryValue(inlineStyle)}`;</pre>
+		<p>The above code also encodes the single quote character, as <a href="https://github.com/whatwg/url/issues/348">this</a> GitHub issue suggests doing so in some cases. The code generates the URL <q><code>&site_path;66c/mirror_polygon.svg?h=6&amp;v=%5B%5B1,0%5D,%5B0.58,0.58%5D,%5B0,1%5D,%5B-0.58,0.58%5D,%5B-1,0%5D,%5B-0.58,-0.58%5D,%5B0,-1%5D,%5B0.58,-0.58%5D%5D&amp;i=background-image:url(%22data:image/svg%2Bxml;charset=UTF-8,%253Csvg%2520xmlns=%2522http://www.w3.org/2000/svg%2522%2520viewBox=%25220%25200%2520100%2520100%2522%253E%253Crect%2520fill=%2522%252369E%2522%2520x=%252220%2522%2520y=%25228%2522%2520width=%252215.2%2522%2520height=%252287%2522/%253E%253C/svg%253E%22);color-scheme:light+dark</code></q>.</p>
+		<p>If you want to encode the whole query string at once, then the reserved characters to be encoded are <q><code>#'+[]</code></q>, and any ampersands or equals signs could be manually encoded if necessary. Just remember that all extra encoding has to be done after using <cite>encodeURI()</cite> to avoid double encoding.</p>
+	</section>
+	<section class="changelog">
+		<h3>End of 2024 Changes</h3>
+		<ul>
+			<li>Made a basic <a href="&site_path;677/index.html">HTML Viewer</a> webpage, as an alternative to an HTML data URI. I've set it up at the domain '6t.lt'. <a class="naked" href="https://6t.lt/?b=Your+HTML+content+here"></a></li>
+			<li>Started posting bike ride plans for around Amherst on my <a href="&site_path;cycling">cycling repository GitHub page</a>.</li>
+			<li>Uploaded an <a href="&site_path;66d/rmc_logo.svg">SVG version</a> of the UMass Recreational Math Club logo.</li>
+		</ul>
+	</section>
+</div>
+</content>
+<link rel="alternate" href="&site_path;blog/#3"/>
+</entry>
+
+<entry>
 <title>66f - Square Mesh Navigation</title>
 <id>urn:uuid:61121CBE-CE84-4E17-8134-A62BBC81EEA6</id>
 <published>2024-09-27T15:01:38-04:00</published>
@@ -66,7 +114,7 @@
 <title>66c - Death and the Compass</title>
 <id>urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705</id>
 <published>2024-08-27T22:07:34-06:00</published>
-<updated>2024-09-27T15:01:38-04:00</updated>
+<updated>2024-12-29T21:06:29-05:00</updated>
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
 	<p>I first learned about Jorge Luis Borges and his short story <cite>Death and the Compass</cite> in 2022 while reading George Fayen's essay in the book <cite><a href="https://www.wikidata.org/wiki/Q126176127">Patterns of Symmetry</a></cite>. In July 2024 I read the story and discussed it with a book club run by my school's library.</p>
@@ -96,7 +144,10 @@
 			<dt>vertices</dt><dd>5</dd>
 		</dl>
 		<p>Set the values using the first letter of the parameter name. The default values for the polygon border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">system colors</a>. The width variables adjust the size of the polygon's border. The vertices parameter can either be a number 3 or greater, or a 2D array of points defining any polygon. Convex polygons work best, and if you only specify the number of vertices then a regular polygon will be used.</p>
-		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded. This is a octagon that fits well inside a regular pentagon: <a href="&site_path;66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="&site_path;66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov ... AS17-134-20387.jpg")</a>.</p>
+		<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="&labyrinths_mp;">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded.<sup>1</sup> This is a octagon that fits well inside a regular pentagon: <a href="&site_path;66c/mirror_polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="&site_path;66c/mirror_polygon.svg?i=background-image:url(%22https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://www.nasa.gov ... AS17-134-20387.jpg")</a>.</p>
+		<aside>
+			<p>1. Just the square brackets. I've since written a <a href="&site_path;?s=%23percent_encode_677">percent-encoding guide</a> as reference for generating URIs in the future.</p>
+		</aside>
 	</section>
 	<h3>Footnotes</h3>
 	<p>Over my summer break, which ends in a week, I walked by Buckminster Fuller's gravestone on the Bellwort Path at Mount Auburn Cemetery.</p>

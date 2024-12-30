@@ -41,6 +41,7 @@ figure img {
 
 iframe {
 	border: 2px solid;
+	box-sizing: border-box;
 	height: 500px;
 	width: 100%;
 }
@@ -52,8 +53,16 @@ p {
 }
 
 pre {
+	background-color: color-mix(in srgb-linear, #808080, Canvas 90%);
+	border: 2px solid;
 	font-size: larger;
+	max-width: max-content;
 	overflow-x: auto;
+	padding: 0.7rem;
+}
+
+q code {
+	word-break: break-all;
 }
 
 section.featured {
@@ -76,6 +85,10 @@ span.fl {
 	font-family: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
 	font-size: 1.7em;
 	font-weight: normal;
+}
+
+ul {
+	line-height: 1.3;
 }
 
 #collage_619 {
