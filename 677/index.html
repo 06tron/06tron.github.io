@@ -12,22 +12,25 @@
 
 <body>
 	<script>
-		function decodeQueryHTML(str) {
+		function charSwapHTML(str) {
 			if (str === null) {
 				return null;
 			}
-			return str.replace(/[()*@]/g, function (char) {
+			return str.replace(/[()*@<>"&]/g, function (char) {
 				return {
 					"(": "<",
 					")": ">",
 					"*": '"',
-					"@": "&"
+					"@": "&",
+					"<": "(",
+					">": ")",
+					'"': "*",
+					"&": "@"
 				}[char];
 			});
 		}
 		const query = new URLSearchParams(window.location.search);
-		const body = query.get("b") ?? decodeQueryHTML(query.get("h")) ?? document.querySelector('meta[name="description"]').content;
-		document.body.innerHTML = body;
+		document.body.innerHTML = query.get("b") ?? charSwapHTML(query.get("h")) ?? document.querySelector('meta[name="description"]').content;
 	</script>
 </body>
 
