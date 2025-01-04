@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE feed [
+	<!ENTITY site_path "https://06tron.github.io/677/">
+]>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Entity Test</title>
+	<author>
+		<name>06tron</name>
+	</author>
+	<id>urn:uuid:255660A3-DC5B-4545-95A0-593EC117C27B</id>
+	<link rel="self" href="&site_path;atom.xml"/>
+	<updated>2025-01-03T23:30:09-05:00</updated>
+
+	<entry>
+		<title>Ampersand</title>
+		<id>urn:uuid:CF81A3CD-0C80-4BC8-A67E-DC9A98E32379</id>
+		<updated>2025-01-03T23:32:10-05:00</updated>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				R &amp; D at &site_path;
+			</div>
+		</content>
+		<link rel="alternate" href="&site_path;?h=(h1)Ampersand(/h1)(p)R+%26+D+at+&site_path;(/p)"/>
+	</entry>
+
+</feed>
