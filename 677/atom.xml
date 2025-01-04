@@ -9,19 +9,20 @@
 		<name>06tron</name>
 	</author>
 	<id>urn:uuid:255660A3-DC5B-4545-95A0-593EC117C27B</id>
-	<link rel="self" href="&page_path;atom.xml"/>
-	<updated>2025-01-03T23:30:09-05:00</updated>
+	<link rel="self" href="https://06tron.github.io/677/atom.xml"/>
+	<link rel="alternate" href="https://github.com/06tron/06tron.github.io/blob/main/677/atom.xml"/>
+	<updated>2025-01-04T00:20:35-05:00</updated>
 
 	<entry>
 		<title>Ampersand</title>
 		<id>urn:uuid:CF81A3CD-0C80-4BC8-A67E-DC9A98E32379</id>
-		<updated>2025-01-03T23:32:10-05:00</updated>
+		<updated>2025-01-04T00:20:35-05:00</updated>
 		<content type="xhtml">
 			<div xmlns="http://www.w3.org/1999/xhtml">
 				R &amp; D at &page_path;
 			</div>
 		</content>
-		<link rel="alternate" href="&page_path;?h=(h1)Ampersand(/h1)(p)R+@+D+at+&page_path;(/p)"/>
+		<link rel="alternate" href="&page_path;?h=(h1)Ampersand(/h1)(p)R+@amp;+D+at+&page_path;(/p)"/>
 	</entry>
 
 </feed>
