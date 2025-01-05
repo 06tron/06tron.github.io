@@ -23,9 +23,10 @@
 		 * swapped for the i-th character in the reversal of
 		 * 'm'. So the last and first characters of 'm' are
 		 * paired, as are the second and second-to-last. Note
-		 * that the four characters "\^]-" sometimes need to be
-		 * escaped before inclusion in a JavaScript regular
-		 * expression character class.
+		 * that replace() is used twice because the four
+		 * characters of "\^]-" sometimes need to be escaped
+		 * before inclusion in a JavaScript regular expression
+		 * character class.
 		 */
 		function charSwap(str, m) {
 			return str?.replace(new RegExp(`[${m.replace(/[\\^\]-]/g, "\\$&")}]`, "g"), char => m.charAt(m.length - m.indexOf(char) - 1));
