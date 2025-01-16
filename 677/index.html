@@ -34,7 +34,7 @@
 
 		const query = new URLSearchParams(window.location.search);
 		const input = query.get("b")
-			?? charSwap(query.get("h"), query.get("m") ?? '&"><()*@')
+			?? charSwap(query.get("h"), query.get("m") ?? `&"><'%X\tZ\n$~()*@`)
 			?? document.querySelector('meta[name="description"]').content;
 		document.body.innerHTML = DOMPurify.sanitize(input);
 	</script>

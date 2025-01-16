@@ -14,7 +14,7 @@
 </div>
 </subtitle>
 <id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
-<updated>2024-09-27T15:01:38-04:00</updated>
+<updated>2025-01-15T20:51:38-07:00</updated>
 <author>
 	<name>Matthew Richardson</name>
 	<uri>https://orcid.org/0009-0001-0977-2029</uri>
@@ -26,7 +26,7 @@
 <title>677 - URI Encoding</title>
 <id>urn:uuid:EAEDA2A5-9298-4206-9724-33AB1158DF5B</id>
 <published>2024-12-29T22:35:12-05:00</published>
-<updated>2024-12-29T22:35:12-05:00</updated>
+<updated>2025-01-15T20:51:38-07:00</updated>
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
 	<p>With the book club this past semester I read Daphne du Maurier's <cite><a href="https://www.wikidata.org/wiki/Q1334940">Rebecca</a></cite>, Gerald Durrell's <cite><a href="https://www.wikidata.org/wiki/Q1394009">My Family and Other Animals</a></cite>, and most of <a href="https://www.wikidata.org/wiki/Q3993282">Tony Mendez's</a> <cite>Argo</cite>. I also read Cormac McCarthy's <cite><a href="https://www.wikidata.org/wiki/Q264519">All the Pretty Horses</a></cite> and Oliver Burkeman's <cite><a href="https://www.wikidata.org/wiki/Q112227229">4000 Weeks</a></cite> on my own.</p>
@@ -60,7 +60,7 @@ const mirrorPolygonURL = `&site_path;66c/mirror_polygon.svg?h=6&amp;v=${encodeQu
 	<section class="changelog">
 		<h3>End of 2024 Changes</h3>
 		<ul>
-			<li>Made a basic <a href="&site_path;677/index.html">HTML Viewer</a> webpage, as an alternative to an HTML data URI. I've set it up at the domain '6t.lt'. <a class="naked" href="https://6t.lt/?b=Your+HTML+content+here"></a></li>
+			<li>Made a basic <a href="&site_path;677/index.html">HTML Viewer</a> webpage, as an alternative to an HTML data URI. I've set it up at the domain '6t.lt'. Usage: <a href="https://6t.lt/?b=Your+HTML+content+here">https://6t.lt/?b=Your+HTML+content+here</a>.</li>
 			<li>Started posting bike ride plans for around Amherst on my <a href="&site_path;cycling">cycling repository GitHub page</a>.</li>
 			<li>Uploaded an <a href="&site_path;66d/rmc_logo.svg">SVG version</a> of the UMass Recreational Math Club logo.</li>
 		</ul>
