@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE feed [
-	<!ENTITY site_path "https://06tron.github.io/">
+	<!ENTITY site_path "https://home.6t.lt/">
 	<!ENTITY labyrinths_mp "&site_path;66c/mirror_polygon.svg?f=silver&amp;h=12&amp;v=&#37;5B&#37;5B0,0&#37;5D,&#37;5B0,1&#37;5D,&#37;5B0.7401084675258551,1.3065629648763766&#37;5D,&#37;5B1.3065629648763766,0.7401084675258551&#37;5D,&#37;5B1,0&#37;5D&#37;5D">
 ]>
 <feed xmlns="http://www.w3.org/2005/Atom">
