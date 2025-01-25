@@ -64,7 +64,7 @@
 
 		const req = new XMLHttpRequest();
 		req.onload = () => displayAtomFeed(req.responseXML);
-		const feedUrl = new URLSearchParams(window.location.search).get("f") ?? "https://06tron.github.io/atom.xml";
+		const feedUrl = new URLSearchParams(window.location.search).get("f") ?? "https://home.6t.lt/atom.xml";
 		req.open("GET", feedUrl);
 		req.send();
 	</script>
