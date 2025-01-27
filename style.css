@@ -46,6 +46,23 @@ iframe {
 	width: 100%;
 }
 
+input[type="text"] {
+	font-size: inherit;
+}
+
+label:has(textarea) {
+	display: grid;
+	grid-template-columns: 5rem 1fr;
+}
+
+label textarea {
+	box-sizing: border-box;
+	font-size: inherit;
+	height: 200px;
+	resize: vertical;
+	width: 100%;
+}
+
 p {
 	line-height: 1.3;
 	margin: 1rem 0;

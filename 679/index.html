@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>String to String Functions</title>
+	<meta charset="utf-8">
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
+	<meta name="color-scheme" content="dark light">
+	<meta name="description" content="a string manipulation tool, with specific functions for URL encoding">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../style.css">
+	<script defer src="script.js"></script>
+</head>
+
+<body>
+	<h1><span class="fl">String to String Functions</span></h1>
+	<p>
+		<label>
+			Input Text
+			<textarea id="input" placeholder="Enter text...&#xA;ex: &lt;p style=&quot;color: #E97&quot;>✿&lt;/p>"></textarea>
+		</label>
+		<label>
+			Retrieve input by entering URL:
+			<input type="text" id="web-input" placeholder="ex: https://example.org">
+		</label>
+	</p>
+	<p>
+		<label>
+			Select a string manipulation function:
+			<select id="choose-function"></select>
+		</label>
+		<button id="apply-function">Apply Function</button>
+		<br>
+		<label>
+			Optional Parameter:
+			<input type="text" id="modifier">
+			<span id="modifier-desc"></span>
+		</label>
+	</p>
+	<p>
+		<label>
+			Output Text
+			<textarea id="output" placeholder="Resulting text will appear here" readonly></textarea>
+		</label>
+		Take Output and 
+		<button id="move">Move to Input</button>
+		or
+		<button id="copy" style="width: 10.5em">Copy to Clipboard</button>
+	</p>
+	<aside>
+		<p>This page uses four optional query parameters to allow for users to add a custom function. They are: the function body 'f', the function's title in the select element 'f-name', the default value of the function argument 'a', and a comment on the argument's purpose 'a-hint'.</p>
+		<pre>String.prototype.userFunction = function (arg, fellback) {
+	/* contents of 'f' parameter */
+}</pre>
+		<p>The arguments of the custom function are the string 'arg' and the boolean 'fellback'. The former is the optional parameter passed through the above input element, and the latter is true as long as the input is blank and the default value was passed instead. Examples: <a href="https://home.6t.lt/679/?f=return+this.toUpperCase()">To Uppercase</a>, <a href="https://home.6t.lt/679/?f=document.body.innerText=fellback?%22Page+Erased%22:arg&f-name=Erase+All&a=&a-hint=(replacement+text)">Erase All</a>, and <a href="https://home.6t.lt/679/?f=return+arg%3E0?(this%2B%22.%22).userFunction(arg-1):this&f-name=Add+Dots&a=3">Add Dots</a>.</p>
+	</aside>
+</body>
+
+</html>
