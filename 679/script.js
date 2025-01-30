@@ -69,6 +69,7 @@ for (const [key, val] of Object.entries(stringFunctions)) {
 	String.prototype[key] = val[3];
 	functionSelect.insertAdjacentHTML("afterbegin", `<option value="${key}">${val[0]}</option>`);
 }
+functionSelect.value = functionSelect.firstChild.value;
 
 document.getElementById("apply-function").addEventListener("mousedown", function () {
 	if (!inputArea.value) {
