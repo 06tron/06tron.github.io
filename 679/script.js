@@ -12,6 +12,9 @@ const stringFunctions = {
 		}
 		return `https://6t.lt?m=${arg.toQueryValue()}&h=${this.charSwap(arg).toQueryValue()}`;
 	}],
+	getNumbers: ["Retrieve Numbers", ",", "(separator)", function (arg) {
+		return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number).join(arg);
+	}],
 	noIndentation: ["Remove Newlines and Tabs", "Unused", "", function () {
 		return this.replace(/[\n\r\t]/g, "");
 	}],
