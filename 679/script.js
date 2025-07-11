@@ -26,10 +26,10 @@ String.prototype.pullNumberArray = function () {
  *
  * @param {number} n - The number to create a string representation for.
  */
-function shortNumberString(n) {
+function shortNumberString(n, rounding = "none") {
 	if (!Number.isFinite(n)) {
-        return n.toString();
-    }
+		return typeof n === "number" ? n.toString() : "NaN";
+	}
 	const [
 		_, sign, integerPart, decimalPart, exponentPart
 	] = n.toString().match(/^(-?)0*(\d*)\.?(\d*)e?(.*)/);
@@ -38,7 +38,21 @@ function shortNumberString(n) {
 		return "0";
 	}
 	let power = Number(exponentPart) - decimalPart.length;
-	const shortBase = fullBase.replace(/0+$/, "");
+	let shortBase;
+	if (rounding.toString().slice(0, 5) == "round") {
+		const i = fullBase.length + power - Number(rounding.slice(5));
+		if (i < fullBase.length && Number(fullBase[i]) >= 5) {
+			const rounded = Number(fullBase.slice(0, i)) + 1;
+			shortBase = rounded.toString().replace(/0+$/, "");
+		} else {
+			shortBase = fullBase.slice(0, i).replace(/0+$/, "");
+		}
+		if (shortBase.length == 0) {
+			return "0";
+		}
+	} else {
+		shortBase = fullBase.replace(/0+$/, "");
+	}
 	power += fullBase.length - shortBase.length;
 	if (0 <= power && power <= 2) {
 		return sign + shortBase + "0".repeat(power);

@@ -1,18 +1,14 @@
-
-// const rT = [[1,1],[4,1],[5,2],[5,6],[4,6],[4,2],[2,2],[2,6],[1,6]];
-// const rB = [[1,0],[5,0],[4,1],[5,5],[4,5],[3,1],[2,1],[2,5],[1,5]];
-// const rT = [[4,4],[28,4],[33,9],[33,36.5],[30.5,39],[13,39],[13,36.5],[24,36.5],[26,34.5],[26,11],[24,9],[13,9],[13,39],[6,39],[6,9],[4,9]];
-// const rB = [[6,0],[30.5,0],[33,2.5],[33,30],[35,30],[35,35],[26,35],[26,4.5],[24,2.5],[13,2.5],[13,30],[15,30],[15,35],[4,35],[4,30],[6,30]];
+// these are the letters defined as polygons inside a square with side length 39
+// (0,0) is top left, bottom right is (39,39)
+// L is left R is right, T is top and B is bottom
 const rT = [[4,4],[28,4],[33,9],[33,39],[24,39],[26,37],[26,11],[24,9],[13,9],[13,39],[6,39],[6,9],[4,9]];
 const rB = [[6,0],[33,0],[28,5],[25,5],[33,13],[33,30],[35,30],[35,35],[26,35],[26,15],[16,5],[13,5],[13,30],[15,30],[15,35],[4,35],[4,30],[6,30]];
-// const mL = [[1,1],[3,1],[6,3],[6,4],[3,2],[2,2],[2,5],[1,5]];
-// const mR = [[5,1],[3,1],[0,3],[0,4],[3,2],[4,2],[4,5],[5,5]];
 const mL = [[4,4],[13,4],[39,19],[39,26],[13,11],[13,35],[4,35],[4,30],[6,30],[6,9],[4,9]];
 const mR = flip(mL, 39, false);
-// const cT = [[1,6],[1,2],[2,1],[4,1],[5,2],[5,3],[4,3],[4,2],[2,2],[2,6]];
-// const cB = [[1,0],[1,4],[2,5],[4,5],[5,4],[5,3],[4,3],[4,4],[2,4],[2,0]];
 const cT = [[6,39],[6,9],[11,4],[28,4],[33,9],[33,16],[26,16],[26,11],[24,9],[15,9],[13,11],[13,39]];
 const cB = flip(cT, 39, true);
+
+// these are the 16 vertices that make up 1/12th of the full circle
 const P_0 = [
 	[0,866],
 	[500,866],
@@ -68,8 +64,16 @@ function rotatePoints(coords, angle, reflect=false) {
 	});
 }
 
+// P is all the points that define the background network lines
+// Indexed by which twelfth of the circle the point is in.
+// Each of the 12 elements is the 'P_0' array rotated/reflected
 const P = generateP(P_0);
+
+// letters and Q are each 6 elements, Q[i] is all 13 quads
+// that letters[i] should be placed in.
 const letters = [cB, cT, mR, mL, rB, rT];
+// these are the quads I found by hand. Each four element array
+// is an array of four 2D points, in order TL TR BR BL
 const Q = [
 // C BOTTOM
 	[[[0,0], P[1][0], P[1][1], P[0][0]],
@@ -158,13 +162,11 @@ const Q = [
 ];
 
 const pathArray = [];
-for (let i = 0; i < letters.length; ++i) { // letters.length; ++i) {
-	for (let j = 0; j < 13; ++j) { // 13
+for (let i = 0; i < letters.length; ++i) {
+	for (let j = 0; j < 13; ++j) {
 		const sideLength = true ? 39 : 6;
 		const coords = squareCoordsToQuad(sideLength, letters[i], Q[i][j]).map(([x, y]) => ([x.toFixed(4), y.toFixed(4)]));
-		// console.log(coords);
 		pathArray.push(makeSVGPath(getPolygonPath(coords)));
-		// console.log(pathArray[0]);
 	}
 }
 console.log(`<g fill="maroon">${pathArray.join("")}</g>`);
@@ -181,7 +183,6 @@ function getPolygonPath(numbersDoubled) {
 		numbers.push(Number(numbersDoubled[i][0]));
 		numbers.push(Number(numbersDoubled[i][1]));
 	}
-	// console.log(numbers);
 	let path = 'd="M' + svgNumbers(numbers[0], numbers[1]);
 	for (let i = 2; i < numbers.length - 1; i += 2) {
 		const ax = numbers[i - 2];
