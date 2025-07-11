@@ -29,7 +29,7 @@
 <updated>2025-07-11T18:11:50-04:00</updated>
 <content type="xhtml">
 <div xmlns="http://www.w3.org/1999/xhtml">
-	<p>This is the content currently featured on my website's home page. I may edit the "About Me" section in the future, but the Number Space description I wrote in early 2023 should stay the same.</p>
+	<p>This feed is outdated, the new version is provided as an <a href="https://home.6t.lt/atom.xml">Atom feed</a> and as a <a href="https://home.6t.lt/feed.json">JSON feed</a>.</p>
 	<section class="featured">
 		<h3><span class="fl">Number Space</span></h3>
 		<figure>
