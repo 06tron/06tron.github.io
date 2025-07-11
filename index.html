@@ -6,8 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<meta name="color-scheme" content="dark light">
-	<meta name="description" content="website homepage with selected projects and &quot;about me&quot;">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width">
 	<link rel="icon" type="image/svg+xml" href="icons/48.svg">
 	<link rel="icon" type="image/png" href="icons/16.png">
 	<link rel="stylesheet" href="style.css">
@@ -32,13 +31,11 @@
 
 <body>
 	<script>
-		const sitePath = "https://home.6t.lt/";
-
 		function displaySections(atomDoc) {
 			let selector = new URLSearchParams(window.location.search).get("s");
 			const homePage = selector === null;
 			if (homePage) {
-				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="${sitePath}blog">blog</a></h2>`);
+				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="https://6t.lt/blog">blog</a></h2>`);
 				selector = ".featured,#collage_619";
 			}
 			const selected = atomDoc.querySelectorAll(selector);
@@ -59,12 +56,13 @@
 					document.body.appendChild(element);
 				}
 			}
+			document.body.insertAdjacentHTML("afterbegin", '<p>This page is outdated, and the content has been moved to <a href="https://home.6t.lt">https://home.6t.lt</a>.</p>');
 			document.body.insertAdjacentHTML("beforeend", `<p style="text-align: center"><span class="fl">❦</span></p>`);
 		}
 
 		const req = new XMLHttpRequest();
 		req.onload = () => displaySections(req.responseXML);
-		req.open("GET", sitePath + "atom.xml");
+		req.open("GET", "https://06tron.github.io/atom.xml");
 		req.send();
 	</script>
 </body>
