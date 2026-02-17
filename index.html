@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>MR Home</title>
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
+	<meta name="color-scheme" content="dark light">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB+Garamond&text=MathewRicrdsonNumbSpA%E2%9D%A6VGPlyg-EG()204&display=swap">
+	<style>
+		h2 {
+			font-weight: normal;
+			margin: 0;
+			text-align: right;
+		}
+		h2 a {
+			background-color: color-mix(in srgb, Canvas, transparent 20%);
+			color: CanvasText;
+			padding: 0.1rem 0.4rem;
+			text-decoration: none;
+		}
+		h2 a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		function displaySections(atomDoc) {
+			let selector = new URLSearchParams(window.location.search).get("s");
+			const homePage = selector === null;
+			if (homePage) {
+				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="https://6t.lt/blog">blog</a></h2>`);
+				selector = ".featured,#collage_619";
+			}
+			const selected = atomDoc.querySelectorAll(selector);
+			if (homePage) {
+				for (const element of selected) {
+					document.body.appendChild(element);
+				}
+			} else {
+				document.title = `MR (${selector})`;
+				if (selected.length == 1) {
+					document.body.appendChild(selected[0]);
+					return;
+				}
+				document.body.insertAdjacentHTML("afterbegin", `<h1>${selector}</h1>`);
+				let i = 0;
+				for (const element of selected) {
+					document.body.insertAdjacentHTML("beforeend", `<h2>${(++i).toString()}</h2>`);
+					document.body.appendChild(element);
+				}
+			}
+			document.body.insertAdjacentHTML("afterbegin", '<p>This page is outdated, and the content has been moved to <a href="https://home.6t.lt">https://home.6t.lt</a>.</p>');
+			document.body.insertAdjacentHTML("beforeend", `<p style="text-align: center"><span class="fl">❦</span></p>`);
+		}
+
+		const req = new XMLHttpRequest();
+		req.onload = () => displaySections(req.responseXML);
+		req.open("GET", "https://06tron.github.io/atom.xml");
+		req.send();
+	</script>
+</body>
+
+</html>

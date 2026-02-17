@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE feed [
+	<!ENTITY site_path "https://06tron.github.io/">
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://home.6t.lt/698/style-atom.css"/>
+
+<title>○–○––○–○¹ blog</title>
+<subtitle type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	<aside>
+		<p>1. This flattened hexagon is an example of a <a href="https://en.wikipedia.org/wiki/Phil_Fish#Polytron">sixtron</a>.</p>
+	</aside>
+</div>
+</subtitle>
+<id>urn:uuid:22620929-5413-4211-BE95-59BD3594FD14</id>
+<updated>2025-07-11T18:11:50-04:00</updated>
+<author>
+	<name>Matthew Richardson</name>
+	<uri>https://orcid.org/0009-0001-0977-2029</uri>
+</author>
+<link rel="self" href="&site_path;atom.xml"/>
+
+<entry>
+<title>66f - Square Mesh Navigation</title>
+<id>urn:uuid:61121CBE-CE84-4E17-8134-A62BBC81EEA6</id>
+<published>2024-09-27T15:01:38-04:00</published>
+<updated>2025-07-11T18:11:50-04:00</updated>
+<content type="xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml">
+	<p>This feed is outdated, the new version is provided as an <a href="https://home.6t.lt/atom.xml">Atom feed</a> and as a <a href="https://home.6t.lt/feed.json">JSON feed</a>.</p>
+	<section class="featured">
+		<h3><span class="fl">Number Space</span></h3>
+		<figure>
+			<img height="162" loading="lazy" src="https://home.6t.lt/668/ns_portals.svg" alt="small sudoku puzzle"/>
+		</figure>
+		<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="&site_path;numberspace">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
+		<p>These oddly shaped puzzles can be modeled with a graph structure. Suppose there is a vertex for each cell in the puzzle. For example a regular Sudoku puzzle would have 81 vertices. The player traverses this graph by moving their mouse between adjacent cells.</p>
+		<p>During puzzle navigation there are two components to the player's position: Where are they in the puzzle? And how is this location placed on the screen? Where they are is at the current vertex, which represents one of the puzzle's cells. This cell's placement on the screen is the player's "level". The level describes the cell's horizontal position, vertical position, and orientation. There are eight possible orientations in this game, which correspond to the symmetries of a square.</p>
+		<p>The player's position changes frequently, so these two components must change accordingly. Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints. The level is represented with a similar matrix. Every time the player moves to a new cell, they follow a single edge in the graph. The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge. </p>
+	</section>
+	<div id="collage_619">
+		<figure>
+			<img height="711" loading="lazy" src="https://home.6t.lt/619/A%20Crow's%20Head.png" alt="two piece collage"/>
+			<figcaption>
+				<p>I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.</p>
+			</figcaption>
+		</figure>
+	</div>
+	<section class="featured">
+		<h3><span class="fl">About Me (September 2024)</span></h3>
+		<figure>
+			<img height="162" loading="lazy" src="https://home.6t.lt/613/mt_tom.jpg" alt="portrait photo"/>
+		</figure>
+		<p>I'm a computer science student at UMass Amherst, working on a master's degree. My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.</p>
+		<p>See my <a href="https://www.linkedin.com/in/3mrichardson/">LinkedIn profile</a>.</p>
+		<p>View this page's <a href="https://github.com/06tron/06tron.github.io/">source on GitHub</a>.</p>
+	</section>
+</div>
+</content>
+<link rel="alternate" href="https://home.6t.lt/shortcuts/blog/#2"/>
+</entry>
+
+</feed>
