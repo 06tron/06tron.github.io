@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE feed [
 	<!ENTITY site_path "https://06tron.github.io/">
+]>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="https://home.6t.lt/698/style-atom.css"/>
