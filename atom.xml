@@ -33,7 +33,7 @@
 	<section class="featured">
 		<h3><span class="fl">Number Space</span></h3>
 		<figure>
-			<img height="162" loading="lazy" src="https://home.6t.lt/668/ns_portals.svg" alt="small sudoku puzzle"/>
+			<img height="162" loading="lazy" src="https://home.6t.lt/668/ns-portals.svg" alt="small sudoku puzzle"/>
 		</figure>
 		<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="&site_path;numberspace">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
 		<p>These oddly shaped puzzles can be modeled with a graph structure. Suppose there is a vertex for each cell in the puzzle. For example a regular Sudoku puzzle would have 81 vertices. The player traverses this graph by moving their mouse between adjacent cells.</p>
@@ -51,7 +51,7 @@
 	<section class="featured">
 		<h3><span class="fl">About Me (September 2024)</span></h3>
 		<figure>
-			<img height="162" loading="lazy" src="https://home.6t.lt/613/mt_tom.jpg" alt="portrait photo"/>
+			<img height="162" loading="lazy" src="https://home.6t.lt/613/mt-tom.jpg" alt="portrait photo"/>
 		</figure>
 		<p>I'm a computer science student at UMass Amherst, working on a master's degree. My favorite subjects are computer graphics, abstract algebra, and artificial intelligence.</p>
 		<p>See my <a href="https://www.linkedin.com/in/3mrichardson/">LinkedIn profile</a>.</p>
