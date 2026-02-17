@@ -1,0 +1,1 @@
+This version of my website is linked to by the [first version](https://06tron.github.io/numberspace) of Number Space, and the repository for the [new website](https://home.6t.lt) is [06tron](https://github.com/06tron/06tron).
