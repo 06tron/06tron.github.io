@@ -33,7 +33,7 @@
 			let selector = new URLSearchParams(window.location.search).get("s");
 			const homePage = selector === null;
 			if (homePage) {
-				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="https://6t.lt/blog">blog</a></h2>`);
+				document.body.insertAdjacentHTML("afterbegin", `<h1 style="text-align: center; margin: 1rem 0px -1em"><span class="fl">Matthew Richardson</span></h1><h2><a href="./atom.xml">blog</a></h2>`);
 				selector = ".featured,#collage_619";
 			}
 			const selected = atomDoc.querySelectorAll(selector);
